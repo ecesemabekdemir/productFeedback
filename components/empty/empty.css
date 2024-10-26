@@ -7,10 +7,35 @@
   align-items: center;
   gap: 20px;
   border-radius: 10px;
+
+  h1 {
+    color: #3A4374;
+  }
+
+  p {
+    color: #647196;
+  }
 }
 
 @media(width <= 768px) {
   .empty {
     padding: 110px 140px;
+  }
+}
+
+@media(width <= 425px) {
+  .empty {
+    padding: 76px 24px;
+  }
+
+  h1 {
+    font-size: 18px;
+    line-height: 26.01px;
+    letter-spacing: -0.25px;
+  }
+
+  p {
+    font-size: 13px;
+    line-height: 18.79px;
   }
 }
