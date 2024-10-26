@@ -1,0 +1,217 @@
+.roadmapContainer {
+  margin-block: 80px;
+}
+
+.filteredSuggestion {
+  display: flex;
+  justify-content: space-between;
+  gap: 10px;
+  margin-top: 48px;
+}
+
+.filteredSuggestionMobil {
+  display: none;
+}
+
+.filteredCardInfo {
+  margin-bottom: 32px;
+}
+
+.filteredCardInfo h3 {
+  color: #3A4374;
+  font-size: 18px;
+  line-height: 26.01px;
+  letter-spacing: -0.25px;
+}
+
+.filteredCardInfo p {
+  color: #647196;
+  font-size: 16px;
+  font-weight: 400;
+  line-height: 23.12px;
+}
+
+.FilteredCard {
+  width: 350px;
+  background-color: #fff;
+  border-radius: 5px;
+  border-top: 6px solid #F49F85;
+  padding: 30px;
+}
+
+.filteredTitle {
+  margin-bottom: 8px;
+}
+
+.FilteredCard a {
+  text-decoration: none;
+  cursor: pointer;
+  color: #3A4374;
+  font-size: 18px;
+  line-height: 26.01px;
+  letter-spacing: -0.25px;
+  font-weight: 700;
+}
+
+.FilteredCard a:hover {
+  color: #4661E6;
+}
+
+.FilteredCard p {
+  color: #647196;
+  font-size: 16px;
+  line-height: 23.12px;
+  font-weight: 400;
+}
+
+.tag button {
+  background-color: #F2F4FF;
+  color: #4661E6;
+  border: transparent;
+  border-radius: 10px;
+  margin-block: 16px;
+  padding: 6px 17px;
+  font-size: 13px;
+  line-height: 18.79px;
+  font-weight: 600;
+}
+
+.filteredActions {
+  display: flex;
+  justify-content: space-between;
+}
+
+.likeBtn button {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  background-color: #F2F4FE;
+  padding: 11px 12px 10px 16px;
+  border: transparent;
+  border-radius: 10px;
+  font-weight: 700;
+  font-size: 13px;
+  line-height: 18.79px;
+  letter-spacing: -0.18px;
+  color: #3A4374;
+}
+
+.likeBtn button:hover {
+  background-color: #CFD7FF;
+}
+
+.filteredCommentInfo {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+
+  p {
+    font-size: 16px;
+    color: #3A4374;
+    letter-spacing: -0.22px;
+    font-weight: 700;
+    line-height: 23.12px;
+  }
+}
+
+@media(width <= 768px) {
+  body {
+    margin-inline: 40px;
+  }
+
+  .roadmapContainer {
+    margin-block: 56px;
+  }
+
+  .FilteredCard {
+    width: 100%;
+    padding: 20px;
+  }
+
+  .filteredCardInfo h3 {
+    font-size: 14px;
+    line-height: 20.23px;
+    letter-spacing: -0.19px;
+  }
+
+  .filteredCardInfo p {
+    font-size: 14px;
+    line-height: 20.23px;
+  }
+
+  .FilteredCard a {
+    font-size: 13px;
+    line-height: 18.79px;
+    letter-spacing: -0.18px;
+  }
+
+  .FilteredCard p {
+    font-size: 13px;
+    line-height: 18.79px;
+  }
+}
+
+@media(width <= 425px) {
+  .roadmapContainer {
+    margin-block: inherit;
+  }
+
+  .filteredSuggestion {
+    display: none;
+  }
+
+  .filteredSuggestionMobil {
+    display: block;
+  }
+
+  .FilteredCard {
+    width: 100%;
+    margin-bottom: 16px;
+  }
+
+  .tabMenu {
+    display: flex;
+    justify-content: space-evenly;
+    gap: 20px;
+    margin-bottom: 24px;
+  }
+  
+  .tabButton {
+    background: none;
+    border: none;
+    font-size: 18px;
+    padding: 8px 16px;
+    color: #333;
+    cursor: pointer;
+    position: relative;
+  }
+  
+  .tabButton.active {
+    color: #AD1FEA;
+  }
+  
+  .tabButton.active::after {
+    content: "";
+    position: absolute;
+    bottom: -4px;
+    left: 0;
+    width: 100%;
+    height: 3px;
+    background-color: #6A0DAD;
+    transition: width 0.3s ease;
+  }
+  
+  .filteredTitle .indicator {
+    display: inline-block;
+    width: 3px;
+    height: 100%;
+    background-color: #6A0DAD;
+    margin-right: 8px;
+  }
+
+  .filteredCardInfo h3 {
+    font-size: 18px;
+    line-height: 26.01px;
+    letter-spacing: -0.25px;
+  }
+}
