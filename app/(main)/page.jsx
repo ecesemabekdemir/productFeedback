@@ -1,3 +1,4 @@
+import Empty from "@/components/empty";
 import FeedbackCard from "@/components/feedbackCard";
 import Header from "@/components/header";
 import Sidebar from "@/components/sidebar";
@@ -9,7 +10,9 @@ export default function MainPage() {
         <Sidebar />
         <div className="content">
           <Header />
-          <FeedbackCard />
+          {/* <FeedbackCard /> */}
+          <Empty />
+
         </div>
       </div>
     </>

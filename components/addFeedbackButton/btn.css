@@ -11,4 +11,8 @@
     text-align: left;
     cursor: pointer;
   }
+
+  button:hover {
+    background-color: #C75AF6;
+  }
 }

@@ -1,4 +1,4 @@
-export default function Empty() {
+export default function EmptySvg() {
   return (
     <>
       <svg

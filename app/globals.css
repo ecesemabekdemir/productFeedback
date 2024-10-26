@@ -39,3 +39,14 @@ h1, h2, h3, h4, h5, h6 {
   gap: 30px;
   margin-block: 90px;
 }
+
+@media(width <= 768px) {
+  body {
+    margin-inline: 50px;
+  }
+
+  .homePage {
+    flex-direction: column;
+    justify-content: space-between;
+  }
+}
