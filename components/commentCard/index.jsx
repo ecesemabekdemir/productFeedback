@@ -3,11 +3,16 @@ import "./commentCard.css";
 export default function CommentCard() {
   return (
     <div className="commentCardContainer">
+      <div>
+        <div className="image"></div>
+      </div>
       <div className="commentCard">
         <div className="commentHeader">
-          <div className="namebox">
-            <p>Elijah Moss</p>
-            <p>@hexagon.bestagon</p>
+          <div className="profil">
+            <div className="namebox">
+              <p>Elijah Moss</p>
+              <p>@hexagon.bestagon</p>
+            </div>
           </div>
           <button>Reply</button>
         </div>

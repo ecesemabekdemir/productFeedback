@@ -1,3 +1,7 @@
+
+.detailPage {
+  margin-block:80px;
+}
 .detailPageHeader {
   display: flex;
   justify-content: space-between;

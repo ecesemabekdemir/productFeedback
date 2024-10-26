@@ -1,22 +1,22 @@
 .commentCardContainer {
   margin: 0 auto;
-  background-color: #FFFFFF;
-  width: 666px;
-  height: 123px;
-  top: 401px;
-  left: 387px;
-  gap: 0px;
-  opacity: 0px;
+  background-color: #ffffff;
+  border-bottom: 1px solid lightgray;
+  display: flex;
+  align-items: start;
+  gap: 32px;
   margin-bottom: 32px;
-  border-bottom: 1px solid  lightgray ;
 }
 
 .commentCard {
-
-
   .commentHeader {
     display: flex;
     justify-content: space-between;
+
+    .profil {
+      display: flex;
+    }
+
   }
   button {
     border: none;
@@ -38,11 +38,30 @@
       text-align: left;
     }
   }
-  p {
+  p:nth-child(2) {
     color: #647196;
     font-size: 15px;
     font-weight: 400;
     line-height: 21.68px;
     text-align: left;
+    margin-bottom: 17px;
   }
 }
+
+.commentContent p {
+  margin-bottom: 32px;
+  color: #647196;
+  font-size: 15px;
+  font-weight: 400;
+  line-height: 21.68px;
+  text-align: left;
+}
+
+.image {
+  width: 25px;
+  height: 25px;
+  border-radius: 50%;
+  background-color: #3a4374;
+ 
+}
+
