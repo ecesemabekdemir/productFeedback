@@ -1,4 +1,6 @@
 "use client";
+import GoBack from "@/components/goBack";
+import "../modal.css";
 
 export default function ModalEdit({ isModalOpen, closeModal }) {
   return (
@@ -6,8 +8,8 @@ export default function ModalEdit({ isModalOpen, closeModal }) {
       {isModalOpen && (
         <div className="modal-overlay">
           <div className="modal-container">
+            <GoBack />
             <h2>Editing ‘Add a dark theme option’</h2>
-
             <form id="editForm">
               <div className="form">
                 <div className="form-group">
@@ -31,6 +33,23 @@ export default function ModalEdit({ isModalOpen, closeModal }) {
                     <option value="">UX</option>
                     <option value="">Bug</option>
                   </select>
+                </div>
+                <div className="form-group">
+                  <label>Update Status</label>
+                  <p>Change feedback state</p>
+                  <select name="" id="">
+                    <option value="">Planned</option>
+                    <option value="">In-Progress</option>
+                    <option value="">Live</option>
+                  </select>
+                </div>
+                <div className="form-group">
+                  <label>Feedback Detail</label>
+                  <p>
+                    Include any specific comments on what should be improved,
+                    added, etc.
+                  </p>
+                  <textarea type="text" name="" required />
                 </div>
               </div>
               <div className="modal-buttons">

@@ -1,7 +1,10 @@
+"use client";
 import CommentIcon from "@/svgs/comment";
 import "./feedback.css";
+import { useRouter } from "next/navigation";
 
 export default function FeedbackCard() {
+  const Router = useRouter();
   return (
     <div className="feedbackCardContainer">
       <div className="feedbackCard">
@@ -15,9 +18,8 @@ export default function FeedbackCard() {
             <p className="tag">Enhancement</p>
           </div>
         </div>
-        <div className="comment">
+        <div className="comment" onClick={() => Router.push("/comment/1")}>
           <CommentIcon />
-          <span></span>
         </div>
       </div>
     </div>
