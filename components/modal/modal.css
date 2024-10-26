@@ -28,6 +28,13 @@
   }
 }
 
+.closeModalBtn {
+  border: transparent;
+  background-color: transparent;
+  float: right;
+  cursor: pointer;
+}
+
 .form-group label {
   display: block;
   font-weight: bold;
@@ -36,9 +43,14 @@
   margin-bottom: 2px;
   border-radius: 5px 0px 0px 0px;
 }
+
 .form-group textarea {
-  width: 456px;
+  width: 535px;
   height: 96px;
+  padding: 16px 23px;
+  font-size: 15px;
+  line-height: 21.68px;
+  color: #3A4374;
   top: 473px;
   left: 42px;
   gap: 0px;
@@ -47,6 +59,7 @@
   border: 1px solid #f7f8fd;
   background-color: #f7f8fd;
   margin-bottom: 32px;
+  resize: none;
 }
 
 .form-group input,
@@ -70,12 +83,9 @@
 
 .buttons {
   display: flex;
-  align-items: end;
+  align-items: flex-end;
   gap: 16px;
-  
-}
-.buttons button:nth-child(1)  {
-  background-color: #3a4374;
+  justify-content: flex-end;
 }
 
 @media (width <= 768px) {

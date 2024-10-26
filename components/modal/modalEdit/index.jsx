@@ -1,6 +1,7 @@
 "use client";
 import GoBack from "@/components/goBack";
-import "./modalEdit.css";
+import "@/components/modal/modal.css"
+import ModalKapatmaSvg from "@/svgs/modal-kapatma";
 
 export default function ModalEdit({ isModalOpen, closeModal }) {
   return (
@@ -8,7 +9,7 @@ export default function ModalEdit({ isModalOpen, closeModal }) {
       {isModalOpen && (
         <div className="modal-overlay">
           <div className="modal-container">
-            <GoBack />
+          <button className="closeModalBtn" onClick={closeModal}> <ModalKapatmaSvg /></button> 
             <h2>Editing ‘Add a dark theme option’</h2>
             <form id="editForm">
               <div className="form">

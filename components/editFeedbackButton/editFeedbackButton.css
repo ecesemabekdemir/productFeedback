@@ -1,5 +1,4 @@
-.editFeedbackButton {
-  button {
+.editModalBtn {
     padding: 12.5px 25px 11.5px 25px;
     background-color: #4661E6;
     border-radius: 16px;
@@ -10,5 +9,28 @@
     line-height: 20.23px;
     text-align: left;
     cursor: pointer;
-  }
+} 
+
+.delete-btn {
+  background-color: #D73737;
+  color: #fff;
+  border: transparent;
+  padding: 12px 25px;
+  border-radius: 10px;
+}
+
+.cancel-btn {
+  background-color: #3A4374;
+  color: #fff;
+  border: transparent;
+  padding: 12px 25px;
+  border-radius: 10px;
+}
+
+.save-btn {
+  background-color: #AD1FEA;
+  color: #fff;
+  border: transparent;
+  border-radius: 10px;
+  padding: 12px 25px;
 }

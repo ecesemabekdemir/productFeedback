@@ -12,9 +12,9 @@ export default function EmptySvg() {
           <path
             d="M62.8268 19.7428C33.7105 19.7372 10.1005 43.3321 10.0874 72.4484C10.0743 101.565 33.6632 125.181 62.7794 125.201C91.8957 125.222 115.518 101.639 115.546 72.5228C115.562 58.5303 110.015 45.1053 100.126 35.2054C90.2379 25.3055 76.8193 19.7428 62.8268 19.7428Z"
             stroke="#3A4374"
-            stroke-width="1.04545"
-            stroke-linecap="round"
-            stroke-linejoin="round"
+            strokeWidth="1.04545"
+            strokeLinecap="round"
+            strokeLinejoin="round"
           />
           <ellipse
             cx="90.4653"
