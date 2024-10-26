@@ -114,6 +114,21 @@
   }
 }
 
+.roadmapHeader {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  background-color: #373F68;
+  padding: 27px;
+  border-radius: 10px;
+}
+
+.roadmapInfo {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
 @media(width <= 768px) {
   body {
     margin-inline: 40px;

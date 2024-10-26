@@ -1,6 +1,7 @@
 .addCommentForm {
   padding: 24px 32px 32px 34px;
   background-color: #ffffff;
+  border-radius: 10px;
  
 }
 
@@ -34,19 +35,6 @@ small {
   font-weight: 400;
   line-height: 21.68px;
   text-align: left;
-}
-
-.form-group textarea {
-  width: 664px;
-  height: 96px;
-  font-size: 15px;
-  line-height: 21.68px;
-  color: #3a4374;
-  border-radius: 5px 0px 0px 0px;
-  border: 1px solid #f7f8fd;
-  background-color: #f7f8fd;
-  margin-bottom: 32px;
-  resize: none;
 }
 
 .btn-group {

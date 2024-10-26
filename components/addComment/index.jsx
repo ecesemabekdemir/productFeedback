@@ -24,7 +24,7 @@ export default function AddCommentForm() {
     <div className="addCommentForm">
       <h2>Add Comment</h2>
       <form className="form-group" onSubmit={handleSubmit}>
-        <textarea
+        <textarea className="addCommentTextarea"
           placeholder="Type your comment here"
           value={text}
           onChange={(e) => setText(e.target.value)}
