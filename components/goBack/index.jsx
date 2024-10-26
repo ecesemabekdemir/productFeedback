@@ -1,3 +1,6 @@
+import Link from "next/link";
+import "./back.css";
+
 export default function GoBack() {
   return (
     <>
