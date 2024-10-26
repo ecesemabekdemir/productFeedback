@@ -1,16 +1,9 @@
-import localFont from "next/font/local";
+import {Jost} from "next/font/google";
 import "./globals.css";
 
-const geistSans = localFont({
-  src: "./fonts/GeistVF.woff",
-  variable: "--font-geist-sans",
-  weight: "100 900",
-});
-const geistMono = localFont({
-  src: "./fonts/GeistMonoVF.woff",
-  variable: "--font-geist-mono",
-  weight: "100 900",
-});
+const font = Jost({
+  subsets: ["latin"]
+})
 
 export const metadata = {
   title: "Create Next App",
@@ -20,7 +13,7 @@ export const metadata = {
 export default function RootLayout({ children }) {
   return (
     <html lang="en">
-      <body className={`${geistSans.variable} ${geistMono.variable}`}>
+      <body className={`${font.className}`}>
         {children}
       </body>
     </html>
