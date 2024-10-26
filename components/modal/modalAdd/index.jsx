@@ -1,6 +1,6 @@
 "use client";
-import GoBack from "@/components/goBack";
 import "../modal.css";
+import ModalKapatmaSvg from "@/svgs/modal-kapatma";
 
 export default function ModalAdd({ isModalOpen, closeModal }) {
   return (
@@ -9,7 +9,7 @@ export default function ModalAdd({ isModalOpen, closeModal }) {
         <>
           <div className="modal-overlay">
             <div className="modal-container">
-              <GoBack />
+               <button className="closeModalBtn" onClick={closeModal}> <ModalKapatmaSvg /></button> 
               <h2>Create New Feedback</h2>
 
               <form id="AddForm">
@@ -44,7 +44,6 @@ export default function ModalAdd({ isModalOpen, closeModal }) {
                   <button
                     type="button"
                     className="cancel-btn"
-                    onClick={closeModal}
                   >
                     Cancel
                   </button>

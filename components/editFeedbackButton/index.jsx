@@ -16,7 +16,7 @@ export default function EditFeedbackButton() {
   return (
     <>
       <div className="editFeedbackButton">
-        <button onClick={openModal}>Edit Feedback</button>
+        <button className="editModalBtn" onClick={openModal}>Edit Feedback</button>
         <ModalEdit isModalOpen={isModalOpen} closeModal={closeModal} />
       </div>
     </>
