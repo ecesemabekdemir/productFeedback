@@ -138,3 +138,22 @@
 .situation h3:nth-child(2) {
   font-weight: 700;
 }
+
+@media(width <= 768px) {
+  .sidebar {
+    flex-direction: row;
+    gap: 10px;
+  }
+
+  .sidebarInfo {
+    padding: 103px 37px 24px 20px;
+  }
+
+  .sidebarFilter {
+    padding: 24px 18px 16px 24px;
+  }
+
+  .roadMapRouting {
+    gap: 67px;
+  }
+}
