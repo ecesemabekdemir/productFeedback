@@ -1,0 +1,48 @@
+.commentCardContainer {
+  margin: 0 auto;
+  background-color: #FFFFFF;
+  width: 666px;
+  height: 123px;
+  top: 401px;
+  left: 387px;
+  gap: 0px;
+  opacity: 0px;
+  margin-bottom: 32px;
+  border-bottom: 1px solid  lightgray ;
+}
+
+.commentCard {
+
+
+  .commentHeader {
+    display: flex;
+    justify-content: space-between;
+  }
+  button {
+    border: none;
+    background: none;
+    color: #4661e6;
+    cursor: pointer;
+    font-size: 13px;
+    font-weight: 600;
+    line-height: 18.79px;
+    text-align: left;
+  }
+  .namebox {
+    p:nth-child(1) {
+      color: #3a4374;
+      font-size: 14px;
+      font-weight: 700;
+      line-height: 20.23px;
+      letter-spacing: -0.1944444477558136px;
+      text-align: left;
+    }
+  }
+  p {
+    color: #647196;
+    font-size: 15px;
+    font-weight: 400;
+    line-height: 21.68px;
+    text-align: left;
+  }
+}
