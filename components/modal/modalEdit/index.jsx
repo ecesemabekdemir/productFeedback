@@ -1,6 +1,6 @@
 "use client";
 import GoBack from "@/components/goBack";
-import "../modal.css";
+import "./modalEdit.css";
 
 export default function ModalEdit({ isModalOpen, closeModal }) {
   return (
@@ -52,7 +52,7 @@ export default function ModalEdit({ isModalOpen, closeModal }) {
                   <textarea type="text" name="" required />
                 </div>
               </div>
-              <div className="modal-buttons">
+              <div className="buttons">
                 <button type="button" className="delete-btn">
                   Delete
                 </button>
