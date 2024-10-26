@@ -1,3 +1,7 @@
+body {
+  background-color: #F7F8FD;
+}
+
 .homePage {
   display: flex;
   gap: 30px;

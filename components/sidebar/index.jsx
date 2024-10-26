@@ -1,3 +1,4 @@
+import SidebarFilter from "../sidebarFilter"
 import "./sidebar.css"
 
 export default function Sidebar() {
@@ -7,6 +8,7 @@ export default function Sidebar() {
         <h1>Frontend Mentor</h1>
         <p>Feedback Board</p>
       </div>
+      <SidebarFilter />
     </div>
   )
 }
