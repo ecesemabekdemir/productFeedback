@@ -1,5 +1,7 @@
 
 .detailPage {
+  margin: 0 auto;
+  width: 825px;
   margin-block:80px;
 }
 .detailPageHeader {

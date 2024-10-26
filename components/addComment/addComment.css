@@ -1,0 +1,55 @@
+.addCommentForm {
+  padding: 24px 32px 32px 34px;
+  background-color: #ffffff;
+ 
+}
+
+.addCommentForm  h2 {
+  margin-bottom: 24px;
+  color: #3a4374;
+  font-size: 18px;
+  font-weight: 700;
+  line-height: 26.01px;
+  letter-spacing: -0.25px;
+  text-align: left;
+}
+
+.addCommentBtn button {
+  background: none;
+  border: none;
+  cursor: pointer;
+  background-color: #ad1fea;
+  font-size: 14px;
+  font-weight: 700;
+  line-height: 20.23px;
+  text-align: left;
+  color: #f2f4fe;
+  padding: 12.5px 24px 11.5px 24px;
+  border-radius: 10px;
+}
+
+small {
+  color: #647196;
+  font-size: 15px;
+  font-weight: 400;
+  line-height: 21.68px;
+  text-align: left;
+}
+
+.form-group textarea {
+  width: 664px;
+  height: 96px;
+  font-size: 15px;
+  line-height: 21.68px;
+  color: #3a4374;
+  border-radius: 5px 0px 0px 0px;
+  border: 1px solid #f7f8fd;
+  background-color: #f7f8fd;
+  margin-bottom: 32px;
+  resize: none;
+}
+
+.btn-group {
+  display: flex;
+  justify-content: space-between;
+}
