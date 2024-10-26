@@ -11,12 +11,11 @@
 
 .left {
   display: flex;
-  align-items: center;
+  align-items: flex-start;
   gap: 16px;
   color: #ffffff;
   font-size: 18px;
   font-weight: 700;
   line-height: 26.01px;
   letter-spacing: -0.25px;
-  text-align: left;
 }
