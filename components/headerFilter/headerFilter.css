@@ -1,0 +1,20 @@
+.headerFilter {
+  display: flex;
+  align-items: center;
+  color: #f2f4fe;
+  font-family: Jost;
+  font-size: 14px;
+  font-weight: 400;
+  line-height: 20.23px;
+  text-align: left;
+
+  select {
+    border: none;
+    background: none;
+    color: #f2f4fe;
+    font-size: 14px;
+    font-weight: 700;
+    line-height: 20.23px;
+    text-align: left;
+  }
+}

@@ -1,7 +1,8 @@
+import "./headerFilter.css";
 export default function HeaderFilter() {
   return (
     <div className="headerFilter">
-      <p>Sort by : Most Upvotes</p>
+      <p>Sort by : </p>
       <select name="" id="">
         <option value="">Most Upvotes</option>
         <option value="">Least Upvotes</option>
