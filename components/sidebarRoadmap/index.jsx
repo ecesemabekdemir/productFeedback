@@ -5,7 +5,7 @@ export default function SidebarRoadMap() {
     <div className="sidebarRoadMap">
       <div className="roadMapRouting">
         <h1>Roadmap</h1>
-        <Link href={"#"}> View </Link>
+        <Link href={"roadmap"}> View </Link>
       </div>
       <div className="situation">
         <h3> <span> </span> Planned</h3>
