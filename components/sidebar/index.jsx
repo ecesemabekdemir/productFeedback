@@ -1,4 +1,5 @@
 import SidebarFilter from "../sidebarFilter"
+import SidebarRoadMap from "../sidebarRoadmap"
 import "./sidebar.css"
 
 export default function Sidebar() {
@@ -9,6 +10,7 @@ export default function Sidebar() {
         <p>Feedback Board</p>
       </div>
       <SidebarFilter />
+      <SidebarRoadMap />
     </div>
   )
 }
