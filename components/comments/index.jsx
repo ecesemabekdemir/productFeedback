@@ -1,3 +1,4 @@
+import AddCommentForm from "../addComment";
 import CommentList from "../commentList";
 import FeedbackCard from "../feedbackCard";
 
@@ -6,6 +7,7 @@ export default function Comments() {
     <div className="comments">
       <FeedbackCard />
       <CommentList />
+      <AddCommentForm />
     </div>
   );
 }
