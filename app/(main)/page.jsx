@@ -10,8 +10,8 @@ export default function MainPage() {
         <Sidebar />
         <div className="content">
           <Header />
-          {/* <FeedbackCard /> */}
-          <Empty />
+          <FeedbackCard />
+          {/* <Empty /> */}
 
         </div>
       </div>

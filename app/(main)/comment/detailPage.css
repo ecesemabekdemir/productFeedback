@@ -1,10 +1,22 @@
 
 .detailPage {
-  margin: 0 auto;
-  width: 825px;
-  margin-block:80px;
+  margin: 80px 160px;
 }
+
 .detailPageHeader {
   display: flex;
   justify-content: space-between;
+}
+
+
+@media(width <= 768px) {
+  .detailPage {
+    margin-inline: 50px;
+  }
+}
+
+@media(width <= 425px) {
+  .detailPage {
+    margin-inline: inherit;
+  }
 }
