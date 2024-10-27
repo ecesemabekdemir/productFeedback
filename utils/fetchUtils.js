@@ -1,17 +1,10 @@
 "use server";
 
-export const advancedFetch = async (url, method = "GET", data = null) => {
-  const response = await fetch(url, {
-    method,
-    headers: {
-      "Content-Type": "application/json",
-      accept: "text/plain",
-      "Cache-Control": "no-cache",
-    },
-    cache: "no-store",
-    body: data ? JSON.stringify(data) : null,
-  });
+export async function getFeedbacks(url) {
+  const { response, status, error } = await dataRequest(url);
 
-  const responseData = await response.json();
-  return responseData;
-};
+  if (error || status !== 200) {
+    throw new Error("Feedbackler getirilemedi");
+  }
+  return { success: true, data: response };
+}
