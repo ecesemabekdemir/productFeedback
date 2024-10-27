@@ -1,7 +1,7 @@
 "use client";
 import { usePathname, useRouter, useSearchParams } from "next/navigation";
 
-export default function SidebarFilter({ data }) {
+export default function SidebarFilter({ response }) {
   const searchParams = useSearchParams();
   const pathname = usePathname();
 
@@ -14,7 +14,7 @@ export default function SidebarFilter({ data }) {
 
     return params.toString();
   };
-  console.log(data);
+  console.log(response);
 
   return (
     <div className="sidebarFilter">
@@ -27,7 +27,7 @@ export default function SidebarFilter({ data }) {
         </button>
       </div>
       <div className="item">
-        {data?.data.slice(0, 5).map((tags, index) => (
+        {response?.response.slice(0, 5).map((tags, index) => (
           <button
             onClick={() => {
               router.push(

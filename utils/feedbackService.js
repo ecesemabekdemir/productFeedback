@@ -2,13 +2,12 @@
 
 import { fetchHelper } from "./fetchUtils";
 
-export async function getFeedbacks(url) {
-  const { response, status, error } = await fetchHelper(url);
+export async function getFeedbacks() {
+  const response = await fetchHelper(
+    `${process.env.API_ROOT_URL}${process.env.API_ENDPOINT}${process.env.API_FEEDBACKS_ENDPOINT}`
+  );
 
-  if (error || status !== 200) {
-    throw new Error("Feedbackler getirilemedi");
-  }
-  return { success: true, data: response };
+  return response;
 }
 
 export async function getData() {
