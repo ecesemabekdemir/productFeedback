@@ -3,7 +3,7 @@ import EditFeedbackButton from "@/components/editFeedbackButton";
 import GoBack from "@/components/goBack";
 import "../detailPage.css";
 
-export default function pageDetail({ params }) {
+export default function PageDetail({ params }) {
   const { id } = params;
   return (
     <>
