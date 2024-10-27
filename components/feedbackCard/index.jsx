@@ -1,7 +1,5 @@
-"use client";
 import CommentIcon from "@/svgs/comment";
 import "./feedback.css";
-import { Router } from "next/navigation";
 import { getFeedbacks } from "@/utils/feedbackService";
 
 export default async function FeedbackCard() {
@@ -9,17 +7,22 @@ export default async function FeedbackCard() {
 
   console.log(error);
 
+  console.log(response);
+
+  //onClick={() => Router.push("/comment/1")}
   return (
     <div className="feedbackCardContainer">
-      <div className="feedbackCard" onClick={() => Router.push("/comment/1")}>
+      <div className="feedbackCard">
         <div className="cardContent">
           <div className="likes">
             <p>50</p>
           </div>
           <div className="feedBackContent">
-            {response.posts.map((x) => (
-              <p>{x.title}</p>
-            ))}
+            <div className="feedBackContentItem">
+              {response.posts.map((x) => (
+                <p>{x.title}</p>
+              ))}
+            </div>
 
             <p className="tag">Enhancement</p>
           </div>
