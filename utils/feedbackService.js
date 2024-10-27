@@ -10,7 +10,9 @@ export async function getFeedbacks() {
   return response;
 }
 
-export async function getData() {
-  const response = await fetchHelper(url);
+export async function getTags() {
+  const response = await fetchHelper(
+    `${process.env.API_ROOT_URL}${process.env.API_ENDPOINT}${process.env.API_FEEDBACKS_ENDPOINT}${process.env.API_CATEGORIES_ENDPOINT}`
+  );
   return response;
 }
