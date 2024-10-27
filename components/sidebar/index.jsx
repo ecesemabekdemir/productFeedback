@@ -1,12 +1,12 @@
-"use client"
+"use client";
 import { useState } from "react";
-import SidebarFilter from "../sidebarFilter"
-import SidebarRoadMap from "../sidebarRoadmap"
-import "./sidebar.css"
+import SidebarFilter from "../sidebarFilter";
+import SidebarRoadMap from "../sidebarRoadmap";
+import "./sidebar.css";
 import Hamburger from "@/svgs/hamburger";
 import CarpiSvg from "@/svgs/carpi";
 
-export default function Sidebar() {
+export default function Sidebar({ data }) {
   const [isMenuOpen, setIsMenuOpen] = useState(false);
 
   const toggleMenu = () => {
@@ -20,27 +20,25 @@ export default function Sidebar() {
           <h1>Frontend Mentor</h1>
           <p>Feedback Board</p>
         </div>
-        <SidebarFilter />
+        <SidebarFilter data={data} />
         <SidebarRoadMap />
       </div>
 
       <div className="topnav">
-      <div className="sidebarInfo">
+        <div className="sidebarInfo">
           <h1>Frontend Mentor</h1>
           <p>Feedback Board</p>
           <button className="hamburgerMenu" onClick={() => toggleMenu()}>
-             {isMenuOpen ? <CarpiSvg /> : <Hamburger />}
+            {isMenuOpen ? <CarpiSvg /> : <Hamburger />}
           </button>
         </div>
         {isMenuOpen && (
-         <div className={`mobileMenuItems ${isMenuOpen ? "open" : ""}`}>
-            <SidebarFilter />
+          <div className={`mobileMenuItems ${isMenuOpen ? "open" : ""}`}>
+            <SidebarFilter data={data} />
             <SidebarRoadMap />
           </div>
         )}
       </div>
     </div>
-
-
-  )
+  );
 }

@@ -1,10 +1,27 @@
 "use server";
+export async function fetchHelper(url, method = "GET", data = null) {
+  try {
+    const response = await fetch(url, {
+      method,
+      headers: {
+        "Content-type": "application/json",
+      },
+      body: data ? JSON.stringify(data) : null,
+    });
 
-export async function getFeedbacks(url) {
-  const { response, status, error } = await dataRequest(url);
+    if (!response.ok) {
+      return { response: null, status: response.status, error: response };
+    }
 
-  if (error || status !== 200) {
-    throw new Error("Feedbackler getirilemedi");
+    const responseData = await response.json();
+    return { response: responseData, status: response.status, error: null };
+  } catch (error) {
+    console.log(error);
+    return { response: null, status: 500, error: error.message };
   }
-  return { success: true, data: response };
 }
+
+export const getDetailSuggestion = async (id) => {
+  const response = await fetchHelper(url + id);
+  return response;
+};

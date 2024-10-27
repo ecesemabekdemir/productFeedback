@@ -1,19 +1,46 @@
+"use client";
+import { usePathname, useRouter, useSearchParams } from "next/navigation";
 
-export default function SidebarFilter() {
+export default function SidebarFilter({ data }) {
+  const searchParams = useSearchParams();
+  const pathname = usePathname();
+
+  const router = useRouter();
+  const categoryParam = searchParams.get("tags");
+
+  const createQueryString = (name, value) => {
+    const params = new URLSearchParams(searchParams.toString());
+    params.set(name, value);
+
+    return params.toString();
+  };
+  console.log(data);
+
   return (
     <div className="sidebarFilter">
       <div className="item">
-        <button>All</button>
-        <button>UI</button>
-        <button>UX</button>
+        <button
+          onClick={() => router.push(`${pathname}`)}
+          className={`${categoryParam ? "select" : ""}`}
+        >
+          All
+        </button>
       </div>
       <div className="item">
-        <button>Enhancement</button>
-        <button>Bug</button>
-      </div>
-      <div className="item">
-        <button>Feature</button>
+        {data?.data.slice(0, 5).map((tags, index) => (
+          <button
+            onClick={() => {
+              router.push(
+                `${pathname}?${createQueryString("tags", tags.slug)}`
+              );
+            }}
+            key={index}
+            className={`${categoryParam === tags.slug ? "select" : ""}`}
+          >
+            {tags.name}
+          </button>
+        ))}
       </div>
     </div>
-  )
+  );
 }
