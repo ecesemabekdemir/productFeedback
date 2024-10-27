@@ -12,7 +12,6 @@ export default function MainPage() {
           <Header />
           <FeedbackCard />
           {/* <Empty /> */}
-
         </div>
       </div>
     </>
