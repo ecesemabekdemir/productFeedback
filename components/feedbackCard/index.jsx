@@ -2,6 +2,7 @@ import CommentIcon from "@/svgs/comment";
 import "./feedback.css";
 import { getFeedbacks } from "@/utils/feedbackService";
 import Link from "next/link";
+import UpdownIcon from "@/svgs/updownicon";
 
 export default async function FeedbackCard() {
   const { response, error } = await getFeedbacks();
@@ -18,6 +19,7 @@ export default async function FeedbackCard() {
             <div className="feedBackContent">
               <div className="cardContent">
                 <div className="likes">
+                  <UpdownIcon />
                   <p>{x.reactions.likes}</p>
                 </div>
                 <div className="feedBackContentItem">
