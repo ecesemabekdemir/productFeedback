@@ -1,5 +1,3 @@
-"use client";
-
 import EditFeedbackButton from "@/components/editFeedbackButton";
 import GoBack from "@/components/goBack";
 import "../detailPage.css";

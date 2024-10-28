@@ -21,7 +21,3 @@ export async function fetchHelper(url, method = "GET", data = null) {
   }
 }
 
-export const getDetailSuggestion = async (id) => {
-  const response = await fetchHelper(url + id);
-  return response;
-};
