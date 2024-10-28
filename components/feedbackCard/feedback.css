@@ -26,15 +26,17 @@ a {
       align-items: flex-start;
       gap: 40px;
 
-      .likes p {
-        padding: 14px 8px;
+      .likes {
+        padding: 11px;
         background-color: #f2f4fe;
         color: #3a4374;
         font-size: 13px;
-        font-weight: 700;
-        line-height: 18.79px;
         letter-spacing: -0.1805555522441864px;
-        text-align: center;
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        gap: 4px;
+        border-radius: 10px;
       }
 
       .feedBackContentItem {
