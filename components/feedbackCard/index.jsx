@@ -9,7 +9,7 @@ export default async function FeedbackCard() {
   return (
     <div className="feedbackCardContainer">
       <>
-        {response.posts.map((x) => (
+        {response.posts.slice(0, 5).map((x) => (
           <Link
             key={x.id}
             href={`/suggestion/${x.id}`}

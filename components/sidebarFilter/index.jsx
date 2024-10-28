@@ -14,7 +14,6 @@ export default function SidebarFilter({ response }) {
 
     return params.toString();
   };
-  console.log(response);
 
   return (
     <div className="sidebarFilter">

@@ -11,7 +11,6 @@ export default async function MainPage({ searchParams }) {
     url = `${url}?tags=${tags}`;
   }
 
-  console.log("dfssdgfarfd", url);
   const data = await getFeedbacks(url);
 
   return (
