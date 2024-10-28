@@ -2,9 +2,9 @@ import AddCommentForm from "../addComment";
 import CommentList from "../commentList";
 import FeedbackCard from "../feedbackCard";
 
-export default function Comments() {
+export default function SuggestionItem() {
   return (
-    <div className="comments">
+    <div className="suggestionItem">
       <FeedbackCard />
       <CommentList />
       <AddCommentForm />

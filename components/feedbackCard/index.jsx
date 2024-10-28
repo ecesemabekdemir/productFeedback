@@ -1,20 +1,20 @@
 import CommentIcon from "@/svgs/comment";
 import "./feedback.css";
 import { getFeedbacks } from "@/utils/feedbackService";
+import Link from "next/link";
 
 export default async function FeedbackCard() {
   const { response, error } = await getFeedbacks();
 
-  console.log(error);
-
-  console.log(response);
-
-  //onClick={() => Router.push("/comment/1")}
   return (
     <div className="feedbackCardContainer">
       <>
         {response.posts.map((x) => (
-          <div className="feedbackCard">
+          <Link
+            key={x.id}
+            href={`/suggestion/${x.id}`}
+            className="feedbackCard"
+          >
             <div className="feedBackContent">
               <div className="cardContent">
                 <div className="likes">
@@ -32,7 +32,7 @@ export default async function FeedbackCard() {
             <div className="comment">
               <CommentIcon />
             </div>
-          </div>
+          </Link>
         ))}
       </>
     </div>

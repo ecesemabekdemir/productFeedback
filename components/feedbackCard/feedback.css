@@ -1,3 +1,7 @@
+a {
+  list-style: none;
+}
+
 .feedbackCardContainer {
   max-width: 825px;
   margin: 0 auto;
