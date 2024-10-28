@@ -16,3 +16,9 @@ export async function getTags() {
   );
   return response;
 }
+
+export async function getDetailSuggestion(id) {
+  const response = await fetchHelper(url + id);
+  return response;
+};
+
