@@ -1,8 +1,9 @@
 "use client";
-import Comments from "@/components/comments";
+
 import EditFeedbackButton from "@/components/editFeedbackButton";
 import GoBack from "@/components/goBack";
 import "../detailPage.css";
+import SuggestionItem from "@/components/suggestion-item";
 
 export default function PageDetail({ params }) {
   const { id } = params;
@@ -14,7 +15,7 @@ export default function PageDetail({ params }) {
           <GoBack />
           <EditFeedbackButton />
         </div>
-        <Comments />
+        <SuggestionItem />
       </div>
     </>
   );
