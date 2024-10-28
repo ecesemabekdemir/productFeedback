@@ -1,40 +1,51 @@
-import { getFeedbacks } from "@/utils/feedbackService";
+"use client";
 import AddCommentForm from "../addComment";
 import CommentList from "../commentList";
 import CommentIcon from "@/svgs/comment";
 import "./suggestionItem.css";
+import { useState, useEffect } from "react";
 
-export default async function SuggestionItem({ id }) {
-  const { response, error } = await getFeedbacks();
-  console.log("Response:", response);
-  if (error) {
-    return <p>Bir hata oluştu.</p>;
-  }
+export default function SuggestionItem({ feedbackData, id }) {
+  const [posts, setPosts] = useState([]);
+  console.log("id", id);
 
-  // Belirli bir ID'ye göre gönderiyi filtreleyin
-  const post = response.posts.slice(0, 5).find((x) => x.id === parseInt(id));
+  useEffect(() => {
+    if (feedbackData && feedbackData.response && feedbackData.response.posts) {
+      console.log("tümnm postlar", feedbackData.response.posts);
 
-  if (!post) {
-    return <p>Gönderi bulunamadı.</p>;
+      const filteredPosts = feedbackData.response.posts.filter((post) => {
+        console.log("idd", post.id, id);
+        return post.id == id;
+      });
+
+      setPosts(filteredPosts);
+      console.log("Filtered posts", filteredPosts); // filtrelenmiş postları kontrol ettik
+    }
+  }, [feedbackData, id]);
+
+  if (posts.length === 0) {
+    return <p>Gönderi bulunamadı.</p>; // posts dizisi boşsa burada döndürdük.
   }
 
   return (
     <div className="suggestionItem">
       <div className="feedbackCardContainer">
-        <div className="feedBackContent">
-          <div className="cardContent">
-            <div className="likes">
-              <p>{post.reactions.likes}</p>
-            </div>
-            <div className="feedBackContentItem">
-              <div>
-                <h3>{post.title}</h3>
-                <p>{post.content || "içerik gelicek"}</p>
-                <p className="tag">Enhancement</p>
+        {posts.map((post, index) => (
+          <div className="feedBackContent" key={index}>
+            <div className="cardContent">
+              <div className="likes">
+                <p>{post.reactions.likes}</p>
+              </div>
+              <div className="feedBackContentItem">
+                <div>
+                  <h3>{post.title}</h3>
+                  <p>{post.content || "içerik gelicek"}</p>
+                  <p className="tag">Enhancement</p>
+                </div>
               </div>
             </div>
           </div>
-        </div>
+        ))}
         <div className="comment">
           <CommentIcon />
         </div>
