@@ -10,8 +10,8 @@ export default async function FeedbackCard() {
   return (
     <div className="feedbackCardContainer">
       <>
-        {response.posts.slice(0, 5).map((x) => (
-          <div className="feedbackCard">
+        {response.posts.slice(0, 5).map((x, index) => (
+          <div key={index} className="feedbackCard">
             <div className="feedBackContent">
               <div className="cardContent">
                 <div className="likes">
@@ -19,7 +19,6 @@ export default async function FeedbackCard() {
                   <p>{x.reactions.likes}</p>
                 </div>
                 <Link
-                  key={x.id}
                   href={`/suggestion/${x.id}`}
                   className="feedBackContentItem"
                 >

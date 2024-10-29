@@ -28,14 +28,13 @@ export default function SidebarFilter({ data }) {
       </div>
       {tagsArray.length > 0 ? (
         tagsArray.slice(0, 5).map((tag, index) => (
-          <div className="item">
+          <div key={index} className="item">
             <button
               onClick={() => {
                 router.push(
                   `${pathname}?${createQueryString("tags", tag.slug)}`
                 );
               }}
-              key={index}
               className={categoryParam === tag.slug ? "select" : ""}
             >
               {tag.tags}
