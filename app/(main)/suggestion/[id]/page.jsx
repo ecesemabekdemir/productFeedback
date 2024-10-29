@@ -2,11 +2,18 @@ import EditFeedbackButton from "@/components/editFeedbackButton";
 import GoBack from "@/components/goBack";
 import "../detailPage.css";
 import SuggestionItem from "@/components/suggestion-item";
-import { getFeedbacks } from "@/utils/feedbackService";
+import {
+  getFeedbackDetail,
+  getFeedbackDetailComments,
+} from "@/utils/feedbackService";
 
 export default async function PageDetail({ params }) {
   const { id } = params;
-  const feedbackData = await getFeedbacks(id);
+  const feedbackDetail = await getFeedbackDetail(id);
+  const feedbackDetailComments = await getFeedbackDetailComments(id);
+
+  console.log("gfcghfckm", feedbackDetail);
+  console.log("gfcghfckm", feedbackDetailComments);
 
   return (
     <>
@@ -15,7 +22,10 @@ export default async function PageDetail({ params }) {
           <GoBack />
           <EditFeedbackButton />
         </div>
-        <SuggestionItem feedbackData={feedbackData} id={id} />
+        <SuggestionItem
+          feedbackDetail={feedbackDetail}
+          comments={feedbackDetailComments?.response?.comments}
+        />
       </div>
     </>
   );

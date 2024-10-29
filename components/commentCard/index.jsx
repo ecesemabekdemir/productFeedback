@@ -1,6 +1,7 @@
 import "./commentCard.css";
 
-export default function CommentCard() {
+export default function CommentCard({ comment }) {
+  console.log("comment :>> ", comment);
   return (
     <div className="commentCardContainer">
       <div>
@@ -10,19 +11,14 @@ export default function CommentCard() {
         <div className="commentHeader">
           <div className="profil">
             <div className="namebox">
-              <p>Elijah Moss</p>
-              <p>@hexagon.bestagon</p>
+              <p>{comment?.user?.fullName}</p>
+              <p>{comment?.user?.username}</p>
             </div>
           </div>
           <button>Reply</button>
         </div>
         <div className="commentContent">
-          <p>
-            Also, please allow styles to be applied based on system preferences.
-            I would love to be able to browse Frontend Mentor in the evening
-            after my device’s dark mode turns on without the bright background
-            it currently has.
-          </p>
+          <p>{comment?.body}</p>
         </div>
       </div>
     </div>
