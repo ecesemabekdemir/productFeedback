@@ -11,9 +11,7 @@ export default async function PageDetail({ params }) {
   const { id } = params;
   const feedbackDetail = await getFeedbackDetail(id);
   const feedbackDetailComments = await getFeedbackDetailComments(id);
-
-  console.log("gfcghfckm", feedbackDetail);
-  console.log("gfcghfckm", feedbackDetailComments);
+  console.log("fededdfa", feedbackDetail);
 
   return (
     <>
@@ -24,7 +22,7 @@ export default async function PageDetail({ params }) {
         </div>
         <SuggestionItem
           feedbackDetail={feedbackDetail}
-          comments={feedbackDetailComments?.response?.comments}
+          comments={feedbackDetailComments}
         />
       </div>
     </>

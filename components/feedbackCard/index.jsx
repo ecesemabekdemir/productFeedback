@@ -9,13 +9,13 @@ export default async function FeedbackCard() {
 
   return (
     <div className="feedbackCardContainer">
-      {response.posts.slice(0, 5).map((x, index) => (
+      {response.map((x, index) => (
         <div key={index} className="feedbackCard">
           <div className="feedBackContent">
             <div className="cardContent">
               <div className="likes">
                 <UpdownIcon />
-                <p>{x.reactions.likes}</p>
+                <p>{x.uploadsCount}</p>
               </div>
               <Link
                 href={`/suggestion/${x.id}`}
@@ -23,8 +23,8 @@ export default async function FeedbackCard() {
               >
                 <div>
                   <h3>{x.title}</h3>
-                  <p>içerik gelicek</p>
-                  <p className="tag">Enhancement</p>
+                  <p>{x.description}</p>
+                  <p className="tag">{x.categoryId}</p>
                 </div>
               </Link>
             </div>

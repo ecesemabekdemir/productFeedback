@@ -9,8 +9,8 @@ export default function SuggestionItem({ feedbackDetail, comments }) {
   const [post, setPost] = useState(null);
 
   useEffect(() => {
-    if (feedbackDetail?.response) {
-      setPost(feedbackDetail.response);
+    if (feedbackDetail) {
+      setPost(feedbackDetail);
     }
   }, [feedbackDetail]);
 
@@ -23,14 +23,14 @@ export default function SuggestionItem({ feedbackDetail, comments }) {
         <div className="feedBackContent">
           <div className="cardContent">
             <div className="likes">
-              <p>{post?.reactions?.likes}</p>
+              <p>{post?.uploadsCount}</p>
             </div>
             <div className="feedBackContentItem">
               <div>
                 <h3>{post?.title}</h3>
                 <p>{post?.content || "içerik gelicek"}</p>
               </div>
-              <p className="tag">Enhancement</p>
+              <p className="tag">{post?.categoryId}</p>
             </div>
           </div>
         </div>

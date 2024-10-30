@@ -11,9 +11,10 @@ export async function getFeedbacks() {
 }
 
 export async function getFeedbackDetail(id) {
-  const response = await fetchHelper(
+  const { response } = await fetchHelper(
     `${process.env.API_ROOT_URL}${process.env.API_ENDPOINT}${process.env.API_FEEDBACKS_ENDPOINT}/${id}`
   );
+  console.log(response);
 
   return response;
 }
@@ -26,12 +27,20 @@ export async function getFeedbackDetailComments(id) {
   return response;
 }
 
-export async function getTags() {
+export async function getCategory() {
   const response = await fetchHelper(
-    `${process.env.API_ROOT_URL}${process.env.API_ENDPOINT}${process.env.API_FEEDBACKS_ENDPOINT}${process.env.API_CATEGORIES_ENDPOINT}`
+    `${process.env.API_ROOT_URL}${process.env.API_CATEGORIES_ENDPOINT}`
   );
   return response;
 }
+
+// export async function getCategory(url) {
+//   const response = await fetch(url);
+//   if (!response.ok) {
+//     throw new Error('Network response was not ok');
+//   }
+//   return response.json(); // ya da response.data; API'nizin döndüğü format
+// }
 
 export async function getDetailSuggestion(id) {
   const response = await fetchHelper(url + id);
