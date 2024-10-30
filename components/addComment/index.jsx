@@ -1,5 +1,5 @@
 "use client";
-import "./AddComment.css";
+import "./addComment.css";
 import { useEffect, useState } from "react";
 import { toast } from "sonner";
 
@@ -24,7 +24,8 @@ export default function AddCommentForm() {
     <div className="addCommentForm">
       <h2>Add Comment</h2>
       <form className="form-group" onSubmit={handleSubmit}>
-        <textarea className="addCommentTextarea"
+        <textarea
+          className="addCommentTextarea"
           placeholder="Type your comment here"
           value={text}
           onChange={(e) => setText(e.target.value)}

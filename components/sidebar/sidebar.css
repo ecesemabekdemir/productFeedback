@@ -64,8 +64,12 @@
   border: transparent;
   cursor: pointer;
 }
-
 .item button:hover {
+  background-color: #4661E6;
+  color: #FFFFFF;
+}
+
+.item .select {
   background-color: #4661E6;
   color: #FFFFFF;
 }
@@ -144,6 +148,12 @@
 
 .topnav {
   display: none;
+}
+
+
+.select {
+  background-color: #4661E6;
+  color: #FFFFFF;
 }
 
 @media(width <= 768px) {

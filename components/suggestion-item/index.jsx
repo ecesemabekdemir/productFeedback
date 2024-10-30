@@ -29,8 +29,8 @@ export default function SuggestionItem({ feedbackDetail, comments }) {
               <div>
                 <h3>{post?.title}</h3>
                 <p>{post?.content || "içerik gelicek"}</p>
-                <p className="tag">Enhancement</p>
               </div>
+              <p className="tag">Enhancement</p>
             </div>
           </div>
         </div>
