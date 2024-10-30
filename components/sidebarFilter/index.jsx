@@ -5,7 +5,7 @@ export default function SidebarFilter({ data }) {
   const searchParams = useSearchParams();
   const pathname = usePathname();
   const router = useRouter();
-  const categoryParam = searchParams.get("tags");
+  const categoryParam = searchParams.get("category");
 
   const createQueryString = (name, value) => {
     const params = new URLSearchParams(searchParams.toString());
@@ -13,8 +13,10 @@ export default function SidebarFilter({ data }) {
     return params.toString();
   };
 
+  console.log("category data", data);
+
   // normal api den category gelmeli data'nın response.altındaki posts dizisini kullandık gercek apiden direkt de gelebilir
-  const tagsArray = data?.response?.posts || [];
+  const category = data?.response || [];
 
   return (
     <div className="sidebarFilter">
@@ -26,18 +28,18 @@ export default function SidebarFilter({ data }) {
           All
         </button>
       </div>
-      {tagsArray.length > 0 ? (
-        tagsArray.slice(0, 5).map((tag, index) => (
-          <div key={index} className="item">
+      {category.length > 0 ? (
+        category.map((x) => (
+          <div className="item">
             <button
               onClick={() => {
                 router.push(
-                  `${pathname}?${createQueryString("tags", tag.slug)}`
+                  `${pathname}?${createQueryString("category", x.name)}`
                 );
               }}
-              className={categoryParam === tag.slug ? "select" : ""}
+              className={categoryParam === x.slug ? "select" : ""}
             >
-              {tag.tags}
+              {x.name}
             </button>
           </div>
         ))
