@@ -9,6 +9,8 @@ import {
 
 export default async function PageDetail({ params }) {
   const { id } = params;
+  console.log("id", id);
+
   const feedbackDetail = await getFeedbackDetail(id);
   const feedbackDetailComments = await getFeedbackDetailComments(id);
   console.log("fededdfa", feedbackDetail);

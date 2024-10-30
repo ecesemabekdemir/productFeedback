@@ -11,14 +11,14 @@ export default function CommentCard({ comment }) {
         <div className="commentHeader">
           <div className="profil">
             <div className="namebox">
-              <p>{comment?.user?.fullName}</p>
-              <p>{comment?.user?.username}</p>
+              {/* <p>{comment?.user?.fullName}</p> */}
+              {/* <p>{comment?.user?.username}</p> */}
             </div>
           </div>
           <button>Reply</button>
         </div>
         <div className="commentContent">
-          <p>{comment?.body}</p>
+          {/* <p>{comment?.body}</p> */}
         </div>
       </div>
     </div>

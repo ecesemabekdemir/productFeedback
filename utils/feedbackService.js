@@ -11,10 +11,22 @@ export async function getFeedbacks() {
 }
 
 export async function getFeedbackDetail(id) {
-  const { response } = await fetchHelper(
-    `${process.env.API_ROOT_URL}${process.env.API_ENDPOINT}${process.env.API_FEEDBACKS_ENDPOINT}/${id}`
+  const { response, status, error } = await fetchHelper(
+    `${process.env.API_ROOT_URL}${process.env.API_FEEDBACKS_ENDPOINT}/${id}`
   );
-  console.log(response);
+
+  if (error) {
+    console.error("API Hatası:", error);
+    throw new Error("Veri alımında bir hata oluştu.");
+  }
+
+  if (status !== 200) {
+    throw new Error(`API'den alınan hata: ${status}`);
+  }
+
+  if (typeof response !== "object" || response === null) {
+    throw new Error("API'den alınan veri geçersiz.");
+  }
 
   return response;
 }

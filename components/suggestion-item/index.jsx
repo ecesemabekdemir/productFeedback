@@ -17,20 +17,21 @@ export default function SuggestionItem({ feedbackDetail, comments }) {
   if (!post) {
     return <p>Gönderi bulunamadı.</p>;
   }
+
   return (
     <div className="suggestionItem">
       <div className="feedbackCardContainer">
         <div className="feedBackContent">
           <div className="cardContent">
             <div className="likes">
-              <p>{post?.uploadsCount}</p>
+              <p>{post.uploadsCount}</p>
             </div>
             <div className="feedBackContentItem">
               <div>
-                <h3>{post?.title}</h3>
-                <p>{post?.content || "içerik gelicek"}</p>
+                <h3>{post.title}</h3>
+                <p>{post.description || "içerik gelicek"}</p>
               </div>
-              <p className="tag">{post?.categoryId}</p>
+              <p className="tag">{post.categoryId}</p>
             </div>
           </div>
         </div>
