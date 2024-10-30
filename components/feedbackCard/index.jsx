@@ -9,33 +9,31 @@ export default async function FeedbackCard() {
 
   return (
     <div className="feedbackCardContainer">
-      <>
-        {response.posts.slice(0, 5).map((x, index) => (
-          <div key={index} className="feedbackCard">
-            <div className="feedBackContent">
-              <div className="cardContent">
-                <div className="likes">
-                  <UpdownIcon />
-                  <p>{x.reactions.likes}</p>
-                </div>
-                <Link
-                  href={`/suggestion/${x.id}`}
-                  className="feedBackContentItem"
-                >
-                  <div>
-                    <h3>{x.title}</h3>
-                    <p>içerik gelicek</p>
-                    <p className="tag">Enhancement</p>
-                  </div>
-                </Link>
+      {response.posts.slice(0, 5).map((x, index) => (
+        <div key={index} className="feedbackCard">
+          <div className="feedBackContent">
+            <div className="cardContent">
+              <div className="likes">
+                <UpdownIcon />
+                <p>{x.reactions.likes}</p>
               </div>
-            </div>
-            <div className="comment">
-              <CommentIcon />
+              <Link
+                href={`/suggestion/${x.id}`}
+                className="feedBackContentItem"
+              >
+                <div>
+                  <h3>{x.title}</h3>
+                  <p>içerik gelicek</p>
+                  <p className="tag">Enhancement</p>
+                </div>
+              </Link>
             </div>
           </div>
-        ))}
-      </>
+          <div className="comment">
+            <CommentIcon />
+          </div>
+        </div>
+      ))}
     </div>
   );
 }
