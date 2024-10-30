@@ -3,6 +3,7 @@
 import { fetchHelper } from "./fetchUtils";
 
 export async function getFeedbacks() {
+  // feedbackleri getiriyor
   const response = await fetchHelper(
     `${process.env.API_ROOT_URL}${process.env.API_ENDPOINT}${process.env.API_FEEDBACKS_ENDPOINT}`
   );
@@ -11,6 +12,7 @@ export async function getFeedbacks() {
 }
 
 export async function getFeedbackDetail(id) {
+  // feedbackdetaya gidiyor
   const { response, status, error } = await fetchHelper(
     `${process.env.API_ROOT_URL}${process.env.API_FEEDBACKS_ENDPOINT}/${id}`
   );
@@ -32,29 +34,18 @@ export async function getFeedbackDetail(id) {
 }
 
 export async function getFeedbackDetailComments(id) {
+  // commentleri getirmek için
   const response = await fetchHelper(
-    `${process.env.API_ROOT_URL}${process.env.API_ENDPOINT}${process.env.API_FEEDBACKS_ENDPOINT}/${id}/comments`
+    `${process.env.API_ROOT_URL}${process.env.API_ENDPOINT}${process.env.API_FEEDBACKS_ENDPOINT}/${id}${process.env.API_COMMENTS_ENDPOINT}`
   );
 
   return response;
 }
 
 export async function getCategory() {
+  // kategorileri getiriyor
   const response = await fetchHelper(
     `${process.env.API_ROOT_URL}${process.env.API_CATEGORIES_ENDPOINT}`
   );
-  return response;
-}
-
-// export async function getCategory(url) {
-//   const response = await fetch(url);
-//   if (!response.ok) {
-//     throw new Error('Network response was not ok');
-//   }
-//   return response.json(); // ya da response.data; API'nizin döndüğü format
-// }
-
-export async function getDetailSuggestion(id) {
-  const response = await fetchHelper(url + id);
   return response;
 }
