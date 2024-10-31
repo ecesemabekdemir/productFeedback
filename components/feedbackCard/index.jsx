@@ -24,13 +24,14 @@ export default async function FeedbackCard() {
                 <div>
                   <h3>{x.title}</h3>
                   <p>{x.description}</p>
-                  <p className="tag">{x.categoryId}</p>
+                  <p className="tag">{x.name}</p>
                 </div>
               </Link>
             </div>
           </div>
           <div className="comment">
             <CommentIcon />
+            <p>{x.commit?.length}</p>
           </div>
         </div>
       ))}

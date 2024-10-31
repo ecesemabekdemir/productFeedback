@@ -17,7 +17,7 @@ export default function ModalAdd({ isModalOpen, closeModal }) {
                   <div className="form-group">
                     <label>Feedback Title</label>
                     <p>Add a short, descriptive headline</p>
-                    <input type="text" name="" required />
+                    <input type="text" name="title" required />
                   </div>
                   <div className="form-group">
                     <label>Category</label>
@@ -37,7 +37,7 @@ export default function ModalAdd({ isModalOpen, closeModal }) {
                       Include any specific comments on what should be improved,
                       added, etc.
                     </p>
-                    <textarea type="text" name="" required />
+                    <textarea type="text" name="description" required />
                   </div>
                 </div>
                 <div className="buttons">
