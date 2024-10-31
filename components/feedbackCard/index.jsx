@@ -8,7 +8,7 @@ export default async function FeedbackCard() {
   const { response, error } = await getFeedbacks();
 
   return (
-    <div className="feedbackCardContainer">
+    <div id="feedback" className="feedbackCardContainer">
       {response.map((x, index) => (
         <div key={index} className="feedbackCard">
           <div className="feedBackContent">

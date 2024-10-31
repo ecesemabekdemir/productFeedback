@@ -2,7 +2,7 @@ a {
   list-style: none;
 }
 
-.feedbackCardContainer {
+#feedback .feedbackCardContainer {
   max-width: 825px;
   margin: 0 auto;
   display: flex;
@@ -11,7 +11,7 @@ a {
   margin-bottom: 24px;
 }
 
-.feedbackCard {
+#feedback .feedbackCard {
   display: flex;
   justify-content: space-between;
   align-items: center;

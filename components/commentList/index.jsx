@@ -1,7 +1,10 @@
+"use client";
 import CommentCard from "../commentCard";
 import "./commentList.css";
 
 export default function CommentList({ feedbackDetail }) {
+
+
   return (
     <div className="commentListContainer">
       <h2>4 Comments</h2>

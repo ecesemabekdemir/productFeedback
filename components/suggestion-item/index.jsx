@@ -11,6 +11,7 @@ export default function SuggestionItem({ feedbackDetail }) {
   useEffect(() => {
     if (feedbackDetail) {
       setPost(feedbackDetail);
+
     }
   }, [feedbackDetail]);
 
@@ -19,7 +20,7 @@ export default function SuggestionItem({ feedbackDetail }) {
   }
 
   return (
-    <div className="suggestionItem">
+    <div id="suggestion" className="suggestionItem">
       <div className="feedbackCardContainer">
         <div className="feedBackContent">
           <div className="cardContent">

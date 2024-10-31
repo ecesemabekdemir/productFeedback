@@ -8,6 +8,7 @@ export async function fetchHelper(url, method = "GET", data = null) {
         "Content-Type": "application/json",
       },
       body: data ? JSON.stringify(data) : null,
+      cache: "no-cache",
     });
 
     if (!response.ok) {

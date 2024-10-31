@@ -8,6 +8,7 @@ export async function getFeedbacks() {
     `${process.env.API_ROOT_URL}${process.env.API_ENDPOINT}${process.env.API_FEEDBACKS_ENDPOINT}`
   );
 
+  console.log(response);
   return response;
 }
 
@@ -33,14 +34,14 @@ export async function getFeedbackDetail(id) {
   return response;
 }
 
-export async function getFeedbackDetailComments(id) {
-  // commentleri getirmek için
-  const response = await fetchHelper(
-    `${process.env.API_ROOT_URL}${process.env.API_ENDPOINT}${process.env.API_FEEDBACKS_ENDPOINT}/${id}${process.env.API_COMMENTS_ENDPOINT}`
-  );
+// // export async function getFeedbackDetailComments(id) {
+// //   // commentleri getirmek için
+// //   const response = await fetchHelper(
+// //     `${process.env.API_ROOT_URL}${process.env.API_ENDPOINT}${process.env.API_FEEDBACKS_ENDPOINT}/${id}${process.env.API_COMMENTS_ENDPOINT}`
+// //   );
 
-  return response;
-}
+//   return response;
+// }
 
 export async function getCategory() {
   // kategorileri getiriyor
@@ -49,3 +50,12 @@ export async function getCategory() {
   );
   return response;
 }
+
+// export async function postCategory() {
+//   // kategorileri post
+//   const response = await fetchHelper(
+//     `${process.env.API_ROOT_URL}${process.env.API_CATEGORIES_ENDPOINT}`,
+//     "POST"
+//   );
+//   return response;
+// }

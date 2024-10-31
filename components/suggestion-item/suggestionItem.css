@@ -2,7 +2,7 @@ a {
   list-style: none;
 }
 
-.feedbackCardContainer {
+#suggestion .feedbackCardContainer {
   margin: 0 auto;
   display: flex;
   justify-content: space-between;
@@ -15,7 +15,7 @@ a {
 
 }
 
-.feedbackCard {
+#suggestion .feedbackCard {
   display: flex;
   justify-content: space-between;
   align-items: center;
