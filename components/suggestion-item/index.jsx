@@ -39,7 +39,7 @@ export default function SuggestionItem({ feedbackDetail, comments }) {
           <CommentIcon />
         </div>
       </div>
-      <CommentList comments={comments} />
+      <CommentList post={post} setPost={setPost} />
       <AddCommentForm />
     </div>
   );

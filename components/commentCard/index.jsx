@@ -1,7 +1,7 @@
 import "./commentCard.css";
 
-export default function CommentCard({ comment }) {
-  console.log("comment :>> ", comment);
+export default function CommentCard({ post, setPost }) {
+  console.log("comment :>> ", post);
   return (
     <div className="commentCardContainer">
       <div>
@@ -11,14 +11,14 @@ export default function CommentCard({ comment }) {
         <div className="commentHeader">
           <div className="profil">
             <div className="namebox">
-              {/* <p>{comment?.user?.fullName}</p> */}
-              {/* <p>{comment?.user?.username}</p> */}
+              {/* <p>{post?.commit?.fullName}</p> */}
+              {/* <p>{post?.commit?.username}</p> */}
             </div>
           </div>
           <button>Reply</button>
         </div>
         <div className="commentContent">
-          {/* <p>{comment?.body}</p> */}
+          <p>{post?.commits?.description}</p>
         </div>
       </div>
     </div>
