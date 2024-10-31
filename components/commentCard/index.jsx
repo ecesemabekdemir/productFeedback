@@ -1,7 +1,7 @@
 import "./commentCard.css";
 
-export default function CommentCard({ post, setPost }) {
-  console.log("comment :>> ", post);
+export default function CommentCard({ comment }) {
+  console.log("comment :>> ", comment);
   return (
     <div className="commentCardContainer">
       <div>
@@ -18,7 +18,7 @@ export default function CommentCard({ post, setPost }) {
           <button>Reply</button>
         </div>
         <div className="commentContent">
-          <p>{post?.commits?.description}</p>
+          <p>{comment?.commits?.description}</p>
         </div>
       </div>
     </div>

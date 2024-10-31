@@ -12,7 +12,7 @@ export default async function PageDetail({ params }) {
   console.log("id", id);
 
   const feedbackDetail = await getFeedbackDetail(id);
-  const feedbackDetailComments = await getFeedbackDetailComments(id);
+
   console.log("fededdfa", feedbackDetail);
 
   return (
@@ -22,10 +22,7 @@ export default async function PageDetail({ params }) {
           <GoBack />
           <EditFeedbackButton />
         </div>
-        <SuggestionItem
-          feedbackDetail={feedbackDetail}
-          comments={feedbackDetailComments}
-        />
+        <SuggestionItem feedbackDetail={feedbackDetail} />
       </div>
     </>
   );

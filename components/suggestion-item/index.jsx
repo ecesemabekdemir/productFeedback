@@ -5,7 +5,7 @@ import CommentIcon from "@/svgs/comment";
 import "./suggestionItem.css";
 import { useEffect, useState } from "react";
 
-export default function SuggestionItem({ feedbackDetail, comments }) {
+export default function SuggestionItem({ feedbackDetail }) {
   const [post, setPost] = useState(null);
 
   useEffect(() => {
@@ -39,7 +39,7 @@ export default function SuggestionItem({ feedbackDetail, comments }) {
           <CommentIcon />
         </div>
       </div>
-      <CommentList post={post} setPost={setPost} />
+      <CommentList feedbackDetail={feedbackDetail} />
       <AddCommentForm />
     </div>
   );
