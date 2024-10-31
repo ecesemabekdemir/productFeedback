@@ -30,7 +30,7 @@ export default function SidebarFilter({ data }) {
       </div>
       {category.length > 0 ? (
         category.map((x) => (
-          <div className="item">
+          <div key={x.id} className="item">
             <button
               onClick={() => {
                 router.push(
