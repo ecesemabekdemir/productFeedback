@@ -14,9 +14,3 @@
     margin-inline: 50px;
   }
 }
-
-@media(width <= 425px) {
-  .detailPage {
-    margin-inline: inherit;
-  }
-}

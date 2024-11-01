@@ -1,5 +1,4 @@
 .header {
-  width: 825px;
   display: flex;
   align-items: center;
   justify-content: space-between;
@@ -18,4 +17,18 @@
   font-weight: 700;
   line-height: 26.01px;
   letter-spacing: -0.25px;
+}
+
+@media (width <= 425px) {
+  .header {
+    border-radius: inherit;
+  }
+
+  .left {
+    display: none;
+  }
+
+  .headerItemLenght {
+    display: none;
+  }
 }

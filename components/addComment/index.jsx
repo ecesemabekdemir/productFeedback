@@ -23,7 +23,7 @@ export default function AddCommentForm() {
   return (
     <div className="addCommentForm">
       <h2>Add Comment</h2>
-      <form className="form-group" onSubmit={handleSubmit}>
+      <form id="addComment" className="form-group" onSubmit={handleSubmit}>
         <textarea
           className="addCommentTextarea"
           placeholder="Type your comment here"
