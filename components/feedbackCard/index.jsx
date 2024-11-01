@@ -1,16 +1,21 @@
+"use client";
 import CommentIcon from "@/svgs/comment";
 import "./feedback.css";
-import { getFeedbacks } from "@/utils/feedbackService";
 import Link from "next/link";
 import UpdownIcon from "@/svgs/updownicon";
+import { useState } from "react";
+import AddFeedbackButton from "../addFeedbackButton";
 
-export default async function FeedbackCard() {
-  const { response, error } = await getFeedbacks();
+export default function FeedbackCard({ feedbackData }) {
+  const [feedbacks, setFeedbacks] = useState(feedbackData);
 
+  function handleAddFeedback(newFeedback) {
+    setFeedbacks((prev) => [...prev, newFeedback]);
+  }
   return (
     <div id="feedback" className="feedbackCardContainer">
-      {response.map((x, index) => (
-        <div key={index} className="feedbackCard">
+      {feedbacks.response.map((x, i) => (
+        <div key={i} className="feedbackCard">
           <div className="feedBackContent">
             <div className="cardContent">
               <div className="likes">
@@ -35,6 +40,7 @@ export default async function FeedbackCard() {
           </div>
         </div>
       ))}
+      <AddFeedbackButton handleAddFeedback={handleAddFeedback} />
     </div>
   );
 }

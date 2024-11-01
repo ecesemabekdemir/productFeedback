@@ -3,7 +3,7 @@ import AddFeedbackButton from "../addFeedbackButton";
 import HeaderFilter from "../headerFilter";
 import "./header.css";
 
-export default function Header() {
+export default function Header({ feedbackData }) {
   return (
     <>
       <div className="header">
@@ -12,7 +12,7 @@ export default function Header() {
           <p className="headerItemLenght">6 Suggestions</p>
         </div>
         <HeaderFilter />
-        <AddFeedbackButton />
+        <AddFeedbackButton feedbackData={feedbackData} />
       </div>
     </>
   );

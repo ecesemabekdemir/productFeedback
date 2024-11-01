@@ -10,13 +10,17 @@ export async function fetchHelper(url, method = "GET", data = null) {
       body: data ? JSON.stringify(data) : null,
       cache: "no-cache",
     });
-
+    console.error("HTTP Durum Kodu:", response.status);
+    // Yanıtın durumu kontrol ediliyor
     if (!response.ok) {
-      const errorData = await response.json(); // Hata mesajını almak için
-      throw new Error(`Hata: ${errorData.message || "Bilinmeyen hata"}`); // Hata fırlatma
+      const errorData = await response.text(); // Yanıtı düz metin olarak al
+      console.error("API Yanıtı:", errorData); // Yanıtı konsola yazdır
+      throw new Error(`Hata: ${errorData || "Bilinmeyen hata"}`);
     }
 
-    const responseData = await response.json();
+    const responseData = await response.json().catch(() => {
+      throw new Error("Yanıt geçersiz JSON formatında");
+    });
     return { response: responseData, status: response.status, error: null };
   } catch (error) {
     console.error("Fetch Hatası:", error.message);
