@@ -3,7 +3,7 @@ import { useState } from "react";
 import ModalEdit from "../modal/modalEdit";
 import "./editFeedbackButton.css";
 
-export default function EditFeedbackButton() {
+export default function EditFeedbackButton({ feedbackData }) {
   const [isModalOpen, setIsModalOpen] = useState(false);
 
   function openModal() {
@@ -16,8 +16,14 @@ export default function EditFeedbackButton() {
   return (
     <>
       <div className="editFeedbackButton">
-        <button className="editModalBtn" onClick={openModal}>Edit Feedback</button>
-        <ModalEdit isModalOpen={isModalOpen} closeModal={closeModal} />
+        <button className="editModalBtn" onClick={openModal}>
+          Edit Feedback
+        </button>
+        <ModalEdit
+          isModalOpen={isModalOpen}
+          closeModal={closeModal}
+          feedbackData={feedbackData}
+        />
       </div>
     </>
   );

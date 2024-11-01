@@ -3,13 +3,19 @@ import { postFeedback } from "@/utils/feedbackService";
 import "../modal.css";
 import ModalKapatmaSvg from "@/svgs/modal-kapatma";
 import { useState } from "react";
+import { useRouter } from "next/navigation";
 
-export default function ModalAdd({ isModalOpen, closeModal }) {
+export default function ModalAdd({
+  isModalOpen,
+  closeModal,
+  handleAddFeedback,
+}) {
   const [formData, setFormData] = useState({
     title: "",
     category: "Feature",
     description: "",
   });
+  const router = useRouter;
 
   function handleChange(e) {
     const { name, value } = e.target;
@@ -19,9 +25,11 @@ export default function ModalAdd({ isModalOpen, closeModal }) {
   async function handleSubmit(e) {
     e.preventDefault();
     try {
-      await postFeedback(formData); // fedback gönder
+      const newFeedback = await postFeedback(formData); // feedback gönder ve dönen veriyi al
       console.log("başarılı eklendi.");
+      handleAddFeedback(newFeedback.response);
       closeModal();
+      setFormData({ title: "", category: "Feature", description: "" });
     } catch (error) {
       console.error("eklenemedi:", error);
     }
@@ -86,7 +94,11 @@ export default function ModalAdd({ isModalOpen, closeModal }) {
                   <button type="button" className="cancel-btn">
                     Cancel
                   </button>
-                  <button type="submit" className="save-btn">
+                  <button
+                    onSubmit={handleAddFeedback}
+                    type="submit"
+                    className="save-btn"
+                  >
                     Add Feedback
                   </button>
                 </div>

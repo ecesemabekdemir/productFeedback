@@ -6,13 +6,8 @@ import { fetchHelper } from "./fetchUtils";
 export async function registerUser(userData) {
   const response = await fetchHelper(
     `${process.env.API_ROOT_URL}${process.env.API_AUTH_ENDPOINT}${process.env.API_REGISTER_ENDPOINT}`,
-    {
-      method: "POST",
-      headers: {
-        "Content-Type": "application/json",
-      },
-      body: JSON.stringify(userData),
-    }
+    "POST",
+    userData
   );
   return response;
 }
@@ -21,13 +16,8 @@ export async function registerUser(userData) {
 export async function loginUser(credentials) {
   const response = await fetchHelper(
     `${process.env.API_ROOT_URL}${process.env.API_AUTH_ENDPOINT}${process.env.API_LOGIN_ENDPOINT}`,
-    {
-      method: "POST",
-      headers: {
-        "Content-Type": "application/json",
-      },
-      body: JSON.stringify(credentials),
-    }
+    "POST",
+    credentials
   );
   return response;
 }
@@ -45,19 +35,18 @@ export async function getFeedbacks() {
 // feedback atma
 export async function postFeedback(formData) {
   const response = await fetchHelper(
-    `${process.env.API_ROOT_URL}${process.env.API_ENDPOINT}${process.env.API_FEEDBACKS_ENDPOINT}${process.env.API_SAVE_ENDPOINT}`,
+    `${process.env.API_ROOT_URL}/api${process.env.API_FEEDBACKS_ENDPOINT}${process.env.API_SAVE_ENDPOINT}`,
+    "POST",
     {
-      method: "POST",
-      headers: {
-        "Content-Type": "application/json",
-      },
-      body: JSON.stringify({
-        title: formData.title,
-        category: formData.category,
-        description: formData.description,
-      }),
+      title: formData.title,
+      category: formData.category,
+      description: formData.description,
     }
   );
+  if (response.error) {
+    console.error("Geri Bildirim Gönderilemedi:", response.error);
+  }
+
   return response;
 }
 
