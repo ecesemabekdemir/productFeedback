@@ -1,14 +1,22 @@
+"use client";
 import LoginForm from "@/components/loginForm";
-import "./login.css"
+import "./login.css";
 import Google from "@/svgs/google";
 import Apple from "@/svgs/apple";
 import Link from "next/link";
+import { useRouter } from "next/navigation";
 
 export default function LoginPage() {
+  const router = useRouter();
+  function handleLoginSuccess() {
+    // ana sayfaya yönlendir
+    router.replace("/");
+  }
+
   return (
     <div className="loginSection">
       <h1>Feedback Board</h1>
-      <LoginForm />
+      <LoginForm handleLoginSuccess={handleLoginSuccess} />
       <div className="or">
         <hr />
         <p>Ya da</p>
@@ -29,5 +37,5 @@ export default function LoginPage() {
         <Link href={"/signUp"}>Sign up</Link>
       </div>
     </div>
-  )
+  );
 }

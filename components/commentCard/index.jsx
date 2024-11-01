@@ -11,7 +11,7 @@ export default function CommentCard({ comment }) {
         <div className="commentHeader">
           <div className="profil">
             <div className="namebox">
-              {/* <p>{post?.commit?.fullName}</p> */}
+              <p>{comment?.userName}</p>
               {/* <p>{post?.commit?.username}</p> */}
             </div>
           </div>

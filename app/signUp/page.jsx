@@ -1,13 +1,23 @@
+"use client"
 import SignupForm from "@/components/signupForm";
 import Apple from "@/svgs/apple";
 import Google from "@/svgs/google";
 import Link from "next/link";
+import { useRouter } from "next/navigation";
 
 export default function SingUpPage() {
+
+    
+  const router = useRouter();
+
+  function handleSignupSuccess  () {
+    
+    router.push("/login"); 
+  };
   return (
     <div className="signupSection">
     <h1>Feedback Board</h1>
-    <SignupForm />
+    <SignupForm handleSignupSuccess={handleSignupSuccess} />
     <div className="or">
       <hr />
       <p>or</p>

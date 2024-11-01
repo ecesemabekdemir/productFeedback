@@ -13,8 +13,6 @@ export default async function MainPage({ searchParams }) {
 
   const data = await getCategory(url);
 
-  console.log("data", data);
-
   return (
     <>
       <div className="homePage">

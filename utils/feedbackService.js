@@ -2,6 +2,36 @@
 
 import { fetchHelper } from "./fetchUtils";
 
+// Kullanıcı kaydı
+export async function registerUser(userData) {
+  const response = await fetchHelper(
+    `${process.env.API_ROOT_URL}${process.env.API_AUTH_ENDPOINT}${process.env.API_REGISTER_ENDPOINT}`,
+    {
+      method: "POST",
+      headers: {
+        "Content-Type": "application/json",
+      },
+      body: JSON.stringify(userData),
+    }
+  );
+  return response;
+}
+
+// Kullanıcı girişi
+export async function loginUser(credentials) {
+  const response = await fetchHelper(
+    `${process.env.API_ROOT_URL}${process.env.API_AUTH_ENDPOINT}${process.env.API_LOGIN_ENDPOINT}`,
+    {
+      method: "POST",
+      headers: {
+        "Content-Type": "application/json",
+      },
+      body: JSON.stringify(credentials),
+    }
+  );
+  return response;
+}
+
 // feedbackleri getiriyor
 export async function getFeedbacks() {
   const response = await fetchHelper(
@@ -23,12 +53,13 @@ export async function postFeedback(formData) {
       },
       body: JSON.stringify({
         title: formData.title,
-        content: formData.content,
+        category: formData.category,
+        description: formData.description,
       }),
     }
   );
   return response;
-};
+}
 
 //feedback silme
 export async function deleteFeedback(id) {
@@ -42,8 +73,7 @@ export async function deleteFeedback(id) {
     }
   );
   return response;
-};
-
+}
 
 // feedbackdetaya gidiyor
 export async function getFeedbackDetail(id) {
@@ -69,22 +99,19 @@ export async function getFeedbackDetail(id) {
 
 // feedback güncellicek
 export async function updateFeedback(formData) {
-  const response = await fetchHelper(
-    `${blblabla}`,
-    {
-      method: "POST",
-      headers: {
-        "Content-Type": "application/json",
-        accept: "text/plain",
-      },
-      body: JSON.stringify({
-        title: formData.title,
-        description: formData.description,
-      }),
-    }
-  );
+  const response = await fetchHelper(`${blblabla}`, {
+    method: "POST",
+    headers: {
+      "Content-Type": "application/json",
+      accept: "text/plain",
+    },
+    body: JSON.stringify({
+      title: formData.title,
+      description: formData.description,
+    }),
+  });
   return response;
-};
+}
 
 // // export async function getFeedbackDetailComments(id) {
 // //   // commentleri getirmek için

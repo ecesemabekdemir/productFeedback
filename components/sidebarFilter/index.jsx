@@ -13,8 +13,6 @@ export default function SidebarFilter({ data }) {
     return params.toString();
   };
 
-  console.log("category data", data);
-
   // normal api den category gelmeli data'nın response.altındaki posts dizisini kullandık gercek apiden direkt de gelebilir
   const category = data?.response || [];
 
