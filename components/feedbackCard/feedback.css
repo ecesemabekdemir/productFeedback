@@ -2,7 +2,7 @@ a {
   list-style: none;
 }
 
-#feedback .feedbackCardContainer {
+#feedback {
   display: flex;
   flex-direction: column;
   gap: 20px;
@@ -66,6 +66,7 @@ a {
     
         .tag {
           max-width: 111px;
+          width: 47px;
           padding: 5px 16px 6px 16px;
           align-items: center;
           text-align: center;
@@ -80,5 +81,12 @@ a {
       }
     }
 
+  }
+}
+
+@media(width <= 425px) {
+
+  #feedback  {
+   margin-inline: 24px;
   }
 }

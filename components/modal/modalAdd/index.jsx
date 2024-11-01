@@ -14,12 +14,12 @@ export default function ModalAdd({ isModalOpen, closeModal }) {
 
               <form id="AddForm">
                 <div className="form">
-                  <div className="form-group">
+                  <div className="formGroup">
                     <label>Feedback Title</label>
                     <p>Add a short, descriptive headline</p>
                     <input type="text" name="title" required />
                   </div>
-                  <div className="form-group">
+                  <div className="formGroup">
                     <label>Category</label>
                     <p>Choose a category for your feedback</p>
                     <select name="" id="">
@@ -31,7 +31,7 @@ export default function ModalAdd({ isModalOpen, closeModal }) {
                       <option value="">Bug</option>
                     </select>
                   </div>
-                  <div className="form-group">
+                  <div className="formGroup">
                     <label>Feedback Detail</label>
                     <p>
                       Include any specific comments on what should be improved,

@@ -2,10 +2,12 @@
   padding: 24px 32px 32px 34px;
   background-color: #ffffff;
   border-radius: 10px;
- 
+  width: 100%;
+  max-width: 900px; 
+  margin: 0 auto;
 }
 
-.addCommentForm  h2 {
+#addComment .addCommentForm  h2 {
   margin-bottom: 24px;
   color: #3a4374;
   font-size: 18px;
@@ -15,7 +17,7 @@
   text-align: left;
 }
 
-.addCommentBtn button {
+#addComment .addCommentBtn button {
   background: none;
   border: none;
   cursor: pointer;
@@ -29,7 +31,7 @@
   border-radius: 10px;
 }
 
-small {
+#addComment small {
   color: #647196;
   font-size: 15px;
   font-weight: 400;
@@ -37,12 +39,20 @@ small {
   text-align: left;
 }
 
-.btn-group {
+#addComment .btn-group {
   display: flex;
   justify-content: space-between;
 }
 
-.form-group textarea {
-  width: 664px;
-  height: 80px;
+#addComment textarea {
+  background-color: #F2F4FF;
+  border: none;
+  padding: 16px 24px;
+  margin-block: 10px;
+  width: 100%; 
+  min-width: 100px; 
+  box-sizing: border-box; 
+  resize: none;
+  font-size: 16px;
+  border-radius: 5px;
 }

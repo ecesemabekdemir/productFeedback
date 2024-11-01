@@ -9,7 +9,7 @@ export default function Header() {
       <div className="header">
         <div className="left">
           <Ampul />
-          <p>6 Suggestions</p>
+          <p className="headerItemLenght">6 Suggestions</p>
         </div>
         <HeaderFilter />
         <AddFeedbackButton />
