@@ -63,7 +63,9 @@
   line-height: 18.79px;
   border: transparent;
   cursor: pointer;
+  margin-left: 5px;
 }
+
 .item button:hover {
   background-color: #4661E6;
   color: #FFFFFF;
