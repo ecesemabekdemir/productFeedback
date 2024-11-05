@@ -40,7 +40,6 @@ export default function FeedbackCard({ feedbackData }) {
           </div>
         </div>
       ))}
-      <AddFeedbackButton handleAddFeedback={handleAddFeedback} />
     </div>
   );
 }
