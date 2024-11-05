@@ -11,68 +11,59 @@ export async function registerUser(userData) {
   );
   return response;
 }
+// me
+export async function Users(formData) {
+  const response = await fetchHelper(
+    `${process.env.API_ROOT_URL}${process.env.API_AUTH_ENDPOINT}${process.env.API_ME_ENDPOINT}`,
+    "POST"
+  );
+  return response;
+}
 
 // Kullanıcı girişi
 export async function loginUser(prevState, formData) {
-  // Formdan gelen email ve şifreyi alıyoruz
   const email = formData.get("email");
   const password = formData.get("password");
 
-  try {
-    const response = await fetchHelper(
-      `${process.env.API_ROOT_URL}${process.env.API_AUTH_ENDPOINT}${process.env.API_LOGIN_ENDPOINT}`,
-      {
-        method: "POST",
-        headers: {
-          "Content-type": "application/json",
-        },
-        body: JSON.stringify({
-          email,
-          password,
-        }),
-        credentials: "include", // Cookie'leri almak için
-      }
-    );
-
-    // Yanıtın başarılı olup olmadığını kontrol et
-    if (!response.ok) {
-      const errorData = await response.text();
-      console.error("Giriş başarısız:", errorData);
-      return { error: "Giriş Yapılamadı" }; // Hata durumunda dönüş yap
+  const response = await fetch(
+    `${process.env.API_ROOT_URL}${process.env.API_AUTH_ENDPOINT}${process.env.API_LOGIN_ENDPOINT}`,
+    {
+      method: "POST",
+      headers: {
+        "Content-type": "application/json",
+      },
+      body: JSON.stringify({
+        email,
+        password,
+      }),
+      credentials: "include",
     }
+  );
+  const data = await response.text();
+  if (!response.ok) {
+    console.log(data);
 
-    // Eğer giriş başarılıysa, cookies'i alalım
-    const responseCookie = response.headers.get("set-cookie");
-    console.log(responseCookie);
-
-    if (!responseCookie) {
-      console.error("Cookie alınamadı.");
-      return { error: "Cookie alınamadı." };
-    }
-
-    // Cookies'i ayrıştırıyoruz
-    const cookiesArray = responseCookie.split(",");
-    const a = cookiesArray.flatMap((x) => x.split(";"));
-    const cookiesObject = {};
-    a.forEach((cookie) => {
-      const [key, value] = cookie.trim().split("=");
-      cookiesObject[key] = value;
-    });
-
-    console.log("Cookies:", cookiesObject);
-
-    // Cookies'i doğru şekilde Next.js cookies API'si ile ayarlıyoruz
-    cookies().set(
-      ".AspNetCore.Identity.Application", // Cookie anahtarınız burada
-      cookiesObject[".AspNetCore.Identity.Application"]
-    );
-
-    return { success: true }; // Başarılı giriş durumunda
-  } catch (error) {
-    // Genel hata yönetimi
-    console.error("Giriş hatası:", error);
-    return { error: "Bir hata oluştu." };
+    return {
+      error: "Giriş Yapılamadı",
+    };
   }
+
+  const responseCookie = response.headers.get("set-cookie");
+  const cookiesArray = responseCookie.split(",");
+  const a = cookiesArray.flatMap((x) => x.split(";"));
+  const cookiesObject = {};
+  a.forEach((cookie) => {
+    const [key, value] = cookie.trim().split("=");
+    cookiesObject[key] = value;
+  });
+  console.log(cookiesObject);
+
+  console.log(cookiesObject[".AspNetCore.Identity.Application"]);
+
+  cookies().set(
+    ".AspNetCore.Identity.Application",
+    cookiesObject[".AspNetCore.Identity.Application"]
+  );
 }
 // feedbackleri getiriyor
 export async function getFeedbacks() {
