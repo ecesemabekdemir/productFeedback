@@ -48,7 +48,7 @@ export default function ModalAdd({
 
               <form onSubmit={handleSubmit} id="AddForm">
                 <div className="form">
-                  <div className="form-group">
+                  <div className="formGroup">
                     <label>Feedback Title</label>
                     <p>Add a short, descriptive headline</p>
                     <input
@@ -59,7 +59,7 @@ export default function ModalAdd({
                       required
                     />
                   </div>
-                  <div className="form-group">
+                  <div className="formGroup">
                     <label>Category</label>
                     <p>Choose a category for your feedback</p>
                     <select
@@ -75,7 +75,7 @@ export default function ModalAdd({
                       <option value="Bug">Bug</option>
                     </select>
                   </div>
-                  <div className="form-group">
+                  <div className="formGroup">
                     <label>Feedback Detail</label>
                     <p>
                       Include any specific comments on what should be improved,

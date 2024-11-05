@@ -63,7 +63,7 @@ export default function ModalEdit({ isModalOpen, closeModal, feedbackData }) {
             <h2>Editing ‘Add a dark theme option’</h2>
             <form id="editForm" onSubmit={handleSubmit}>
               <div className="form">
-                <div className="form-group">
+                <div className="formGroup">
                   <label>Feedback Title</label>
                   <p>Add a short, descriptive headline</p>
                   <input
@@ -75,7 +75,7 @@ export default function ModalEdit({ isModalOpen, closeModal, feedbackData }) {
                     onChange={handleChange}
                   />
                 </div>
-                <div className="form-group">
+                <div className="formGroup">
                   <label>Category</label>
                   <p>Choose a category for your feedback</p>
                   <select
@@ -91,7 +91,7 @@ export default function ModalEdit({ isModalOpen, closeModal, feedbackData }) {
                     <option value="Bug">Bug</option>
                   </select>
                 </div>
-                <div className="form-group">
+                <div className="formGroup">
                   <label>Update Status</label>
                   <p>Change feedback state</p>
                   <select
@@ -104,7 +104,7 @@ export default function ModalEdit({ isModalOpen, closeModal, feedbackData }) {
                     <option value="Live">Live</option>
                   </select>
                 </div>
-                <div className="form-group">
+                <div className="formGroup">
                   <label>Feedback Detail</label>
                   <p>
                     Include any specific comments on what should be improved,
