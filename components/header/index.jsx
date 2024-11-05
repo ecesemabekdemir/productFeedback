@@ -2,6 +2,7 @@ import Ampul from "@/svgs/ampul/ampul";
 import AddFeedbackButton from "../addFeedbackButton";
 import HeaderFilter from "../headerFilter";
 import "./header.css";
+import LoginBtn from "../loginBtn";
 
 export default function Header({ feedbackData }) {
   return (
@@ -13,6 +14,7 @@ export default function Header({ feedbackData }) {
         </div>
         <HeaderFilter />
         <AddFeedbackButton feedbackData={feedbackData} />
+        <LoginBtn />
       </div>
     </>
   );
