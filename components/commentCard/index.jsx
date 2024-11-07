@@ -4,9 +4,8 @@ import "./commentCard.css";
 export default function CommentCard({ comment }) {
   return (
     <div className="commentCardContainer">
-      <div>
+      <div className="commentCardInfo">
         <div className="image"></div>
-      </div>
       <div className="commentCard">
         <div className="commentHeader">
           <div className="profil">
@@ -15,11 +14,14 @@ export default function CommentCard({ comment }) {
               {/* <p>{post?.commit?.username}</p> */}
             </div>
           </div>
-          <button>Reply</button>
-        </div>
         <div className="commentContent">
           <p>{comment?.description}</p>
         </div>
+        </div>
+      </div>
+      </div>
+      <div className="reply">
+        <button>Reply</button>
       </div>
     </div>
   );
