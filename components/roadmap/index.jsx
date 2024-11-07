@@ -5,14 +5,14 @@ import Live from "./live";
 import Planned from "./planned";
 import "./roadmap.css"
 
-export  default function RoadmapComp() {
+export  default function RoadmapComp({feedbackData}) {
   const [selectedTab, setSelectedTab] = useState("Planned");
   return (
     <div className="filteredSuggestionPart">
       <div className="filteredSuggestion">
-        <Planned />
-        <Live />
-        <Progress />
+        <Planned feedbackData={feedbackData} />
+        <Live feedbackData={feedbackData} />
+        <Progress feedbackData={feedbackData} />
       </div>
 
       <div className="filteredSuggestionMobil">
