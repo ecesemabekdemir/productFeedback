@@ -11,7 +11,6 @@ export default function SuggestionItem({ feedbackDetail }) {
   useEffect(() => {
     if (feedbackDetail) {
       setPost(feedbackDetail);
-
     }
   }, [feedbackDetail]);
 
@@ -40,6 +39,7 @@ export default function SuggestionItem({ feedbackDetail }) {
         </div>
         <div className="comment">
           <CommentIcon />
+          <p>{post.commits.length}</p>
         </div>
       </div>
       <CommentList feedbackDetail={feedbackDetail} />
