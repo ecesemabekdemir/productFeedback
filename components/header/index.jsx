@@ -6,6 +6,7 @@ import "./header.css";
 import LoginBtn from "../loginBtn";
 import { useEffect, useState } from "react";
 import { GetMe, logOut } from "@/utils/feedbackService";
+import DropdownProfile from "../dropdown";
 
 export default function Header({ feedbackData }) {
   const [user, setUser] = useState({});
@@ -37,13 +38,8 @@ export default function Header({ feedbackData }) {
         <HeaderFilter />
         {user?.data ? (
           <>
-            <div className="userInfo">
-              {user?.data?.firstName}
-              {user?.data?.lastName}
-            </div>{" "}
-            <br />
             <AddFeedbackButton />
-            <button onClick={handleLogout}>Çıkış Yap</button>
+            <DropdownProfile user={user} handleLogout={handleLogout} />
           </>
         ) : (
           <LoginBtn />
