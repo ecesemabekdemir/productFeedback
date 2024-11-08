@@ -1,10 +1,11 @@
 "use client";
 import "./headerFilter.css";
+
 export default function HeaderFilter() {
   return (
     <div className="headerFilter">
       <p>Sort by : </p>
-      <select name="" id="">
+      <select>
         <option value="">Most Upvotes</option>
         <option value="">Least Upvotes</option>
         <option value="">Most Comments</option>

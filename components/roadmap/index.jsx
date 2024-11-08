@@ -38,9 +38,9 @@ export  default function RoadmapComp({feedbackData}) {
       </div>
 
       <div className="filteredSuggestionPart">
-        {selectedTab === "Planned" && <Planned />}
-        {selectedTab === "Live" && <Live />}
-        {selectedTab === "Progress" && <Progress />}
+        {selectedTab === "Planned" && <Planned feedbackData={feedbackData} />}
+        {selectedTab === "Live" && <Live feedbackData={feedbackData} />}
+        {selectedTab === "Progress" && <Progress feedbackData={feedbackData} />}
       </div>
       </div>
     </div>
