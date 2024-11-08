@@ -4,13 +4,40 @@ import { fetchHelper } from "./fetchUtils";
 import { redirect } from "next/navigation";
 
 // Kullanıcı kaydı
-export async function registerUser(userData) {
-  const response = await fetchHelper(
+export async function registerUser(prevState, formData) {
+  const email = formData.get("email");
+  const password = formData.get("password");
+  const firstName = formData.get("firstName");
+  const lastName = formData.get("lastName");
+  const avatar = formData.get("avatar");
+  const nickname = formData.get("nickname");
+
+  const response = await fetch(
     `${process.env.API_ROOT_URL}${process.env.API_AUTH_ENDPOINT}${process.env.API_REGISTER_ENDPOINT}`,
-    "POST",
-    userData
+    {
+      method: "POST",
+      headers: {
+        "Content-type": "application/json",
+      },
+      body: JSON.stringify({
+        email,
+        password,
+        firstName,
+        lastName,
+        avatar,
+        nickname,
+      }),
+    }
   );
-  return response;
+  const data = await response.text();
+  if (!response.ok) {
+    console.log(data);
+
+    return {
+      error: "kayıt Yapılamadı",
+    };
+  }
+  redirect("/login");
 }
 
 // Kullanıcı girişi
@@ -184,7 +211,7 @@ export async function postComments(formData) {
 //feedback silme
 export async function deleteFeedback(id) {
   const response = await fetchHelper(
-    `${process.env.API_ROOT_URL}${process.env.API_ENDPOINT}${process.env.API_FEEDBACKS_ENDPOINT}${process.env.API_DELETE_ENDPOINT}/${id}`,
+    `${process.env.API_ROOT_URL}${process.env.API_ENDPOINT}${process.env.API_FEEDBACKS_ENDPOINT}${process.env.API_DELETE_ENDPOINT}?${id}`,
     {
       method: "DELETE",
       headers: {
