@@ -1,8 +1,9 @@
 "use client";
 
+import { registerUser } from "@/utils/feedbackService";
 import { useState } from "react";
 
-export default function SignupForm({ handleSignupSuccess }) {
+export default function SignupForm() {
   const [formData, setFormData] = useState({
     name: "",
     lastname: "",
@@ -10,24 +11,13 @@ export default function SignupForm({ handleSignupSuccess }) {
     password: "",
   });
 
-  async function handleSignup(e) {
-    e.preventDefault();
-    try {
-      const response = await signupUser(formData); // signupUser fonksiyonunu feedbackServer.jsden
-      console.log("Kayıt başarılı:", response);
-      handleSignupSuccess(); // kayıt ok ise yönlendir logine yönlendirce<
-    } catch (error) {
-      console.error("Kayıt hatası:", error);
-    }
-  }
-
   function handleChange(e) {
     const { name, value } = e.target;
     setFormData((prev) => ({ ...prev, [name]: value }));
   }
 
   return (
-    <form className="signupForm" onSubmit={handleSignup}>
+    <form className="signupForm" action={registerUser}>
       <label htmlFor="name">
         <input
           name="name"

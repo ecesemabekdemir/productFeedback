@@ -1,3 +1,4 @@
+"use client";
 import "./headerFilter.css";
 export default function HeaderFilter() {
   return (

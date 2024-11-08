@@ -1,6 +1,7 @@
 "use server";
 import { cookies } from "next/headers";
 import { fetchHelper } from "./fetchUtils";
+import { redirect } from "next/navigation";
 
 // Kullanıcı kaydı
 export async function registerUser(userData) {
@@ -8,14 +9,6 @@ export async function registerUser(userData) {
     `${process.env.API_ROOT_URL}${process.env.API_AUTH_ENDPOINT}${process.env.API_REGISTER_ENDPOINT}`,
     "POST",
     userData
-  );
-  return response;
-}
-// me
-export async function Users(formData) {
-  const response = await fetchHelper(
-    `${process.env.API_ROOT_URL}${process.env.API_AUTH_ENDPOINT}${process.env.API_ME_ENDPOINT}`,
-    "POST"
   );
   return response;
 }
@@ -39,6 +32,7 @@ export async function loginUser(prevState, formData) {
       credentials: "include",
     }
   );
+
   const data = await response.text();
   if (!response.ok) {
     console.log(data);
@@ -64,33 +58,114 @@ export async function loginUser(prevState, formData) {
     ".AspNetCore.Identity.Application",
     cookiesObject[".AspNetCore.Identity.Application"]
   );
+  redirect("/");
 }
+
+// me
+export async function GetMe() {
+  try {
+    const response = await fetch(`https://feedback.bariscakdi.com.tr/auth/me`, {
+      method: "GET",
+      headers: {
+        accept: "*/*",
+        Cookie: cookies().toString(),
+      },
+    });
+    if (!response.ok) {
+      return { error: "hata var" };
+    }
+
+    const data = await response.json();
+
+    console.log("user dataa", data);
+
+    return { data };
+  } catch (error) {
+    console.log(error);
+    return { data: null, error };
+  }
+}
+
+// logOut
+export async function logOut() {
+  const response = await fetchHelper(
+    `${process.env.API_ROOT_URL}${process.env.API_AUTH_ENDPOINT}${process.env.API_LOGOUT_ENDPOINT}`
+  );
+  return response;
+}
+
 // feedbackleri getiriyor
 export async function getFeedbacks() {
   const response = await fetchHelper(
     `${process.env.API_ROOT_URL}${process.env.API_ENDPOINT}${process.env.API_FEEDBACKS_ENDPOINT}`
   );
 
-  console.log(response);
   return response;
 }
 
 // feedback atma
 export async function postFeedback(formData) {
-  const response = await fetchHelper(
-    `${process.env.API_ROOT_URL}/api${process.env.API_FEEDBACKS_ENDPOINT}${process.env.API_SAVE_ENDPOINT}`,
-    "POST",
+  const title = formData.get("title");
+  const description = formData.get("description");
+  const category = formData.get("category");
+  console.log("postttt", formData);
+
+  const response = await fetch(
+    `https://feedback.bariscakdi.com.tr/api/feedback/save`,
     {
-      title: formData.title,
-      category: formData.category,
-      description: formData.description,
+      method: "POST",
+      headers: {
+        "Content-type": "application/json",
+        Cookie: cookies().toString(),
+      },
+      body: JSON.stringify({
+        title,
+        description,
+        categoryId: parseInt(category),
+        CategoryName: "UI",
+      }),
     }
   );
-  if (response.error) {
-    console.error("Geri Bildirim Gönderilemedi:", response.error);
+  if (!response.ok) {
+    console.error("Geri Bildirim Gönderilemedi:");
+  }
+  const data = await response.json();
+  redirect("/");
+}
+
+// comment atma
+export async function postComments(formData) {
+  const feedBackId = formData.get("feedBackId");
+  const description = formData.get("description");
+  const userId = formData.get("userId");
+  const userName = formData.get("userName");
+  const commitId = formData.get("commitId");
+
+  console.log("commmmeent", formData);
+
+  const response = await fetch(
+    `https://feedback.bariscakdi.com.tr/api/commit/addcommit`,
+    {
+      method: "POST",
+      headers: {
+        "Content-type": "application/json",
+        Cookie: cookies().toString(),
+      },
+      body: JSON.stringify({
+        feedBackId: parseInt(feedBackId),
+        description,
+        userId: parseInt(userId),
+        userName,
+        commitId: parseInt(commitId),
+      }),
+    }
+  );
+  if (!response.ok) {
+    console.error("Geri Bildirim Gönderilemedi:");
   }
 
-  return response;
+  const data = await response.json();
+  redirect(`/suggestion/${feedBackId}`);
 }
 
 //feedback silme
@@ -113,47 +188,41 @@ export async function getFeedbackDetail(id) {
     `${process.env.API_ROOT_URL}${process.env.API_FEEDBACKS_ENDPOINT}/${id}`
   );
 
-  if (error) {
-    console.error("API Hatası:", error);
-    throw new Error("Veri alımında bir hata oluştu.");
-  }
+  // if (error) {
+  //   throw new Error("Veri alımında bir hata oluştu.");
+  // }
 
-  if (status !== 200) {
-    throw new Error(`API'den alınan hata: ${status}`);
-  }
+  // if (status !== 200) {
+  //   throw new Error(`API'den alınan hata: ${status}`);
+  // }
 
-  if (typeof response !== "object" || response === null) {
-    throw new Error("API'den alınan veri geçersiz.");
-  }
+  // if (typeof response !== "object" || response === null) {
+  //   throw new Error("API'den alınan veri geçersiz.");
+  // }
 
   return response;
 }
 
 // feedback güncellicek
 export async function updateFeedback(formData) {
-  const response = await fetchHelper(`${blblabla}`, {
-    method: "POST",
-    headers: {
-      "Content-Type": "application/json",
-      accept: "text/plain",
-    },
-    body: JSON.stringify({
-      title: formData.title,
-      description: formData.description,
-    }),
-  });
+  const response = await fetchHelper(
+    `${process.env.API_ROOT_URL}/api${process.env.API_FEEDBACKS_ENDPOINT}${process.env.API_UPDATE_ENDPOINT}`,
+    {
+      method: "POST",
+      headers: {
+        "Content-Type": "application/json",
+        accept: "text/plain",
+      },
+      body: JSON.stringify({
+        title: formData.title,
+        description: formData.description,
+      }),
+    }
+  );
   return response;
 }
 
-// // export async function getFeedbackDetailComments(id) {
-// //   // commentleri getirmek için
-// //   const response = await fetchHelper(
-// //     `${process.env.API_ROOT_URL}${process.env.API_ENDPOINT}${process.env.API_FEEDBACKS_ENDPOINT}/${id}${process.env.API_COMMENTS_ENDPOINT}`
-// //   );
-
-//   return response;
-// }
-
+// category gelcek
 export async function getCategory() {
   // kategorileri getiriyor
   const response = await fetchHelper(
@@ -161,14 +230,3 @@ export async function getCategory() {
   );
   return response;
 }
-
-// export async function postCategory() {
-//   // kategorileri post
-//   const response = await fetchHelper(
-//     `${process.env.API_ROOT_URL}${process.env.API_CATEGORIES_ENDPOINT}`,
-//     "POST"
-//   );
-//   return response;
-// }
-
-//feedback atma

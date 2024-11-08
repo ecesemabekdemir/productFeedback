@@ -3,9 +3,8 @@ import { useState } from "react";
 import "./btn.css";
 import ModalAdd from "../modal/modalAdd";
 
-export default function AddFeedbackButton({ feedbackData, handleAddFeedback }) {
+export default function AddFeedbackButton() {
   const [isModalOpen, setIsModalOpen] = useState(false);
-  const [feedbacks, setFeedbacks] = useState(feedbackData);
 
   function openModal() {
     setIsModalOpen(true);
@@ -19,11 +18,7 @@ export default function AddFeedbackButton({ feedbackData, handleAddFeedback }) {
     <>
       <div className="addFeedbackButton">
         <button onClick={openModal}>+ Add Feedback</button>
-        <ModalAdd
-          isModalOpen={isModalOpen}
-          closeModal={closeModal}
-          handleAddFeedback={handleAddFeedback}
-        />
+        <ModalAdd isModalOpen={isModalOpen} closeModal={closeModal} />
       </div>
     </>
   );

@@ -1,111 +1,103 @@
 "use client";
-import { postFeedback } from "@/utils/feedbackService";
+
 import "../modal.css";
 import ModalKapatmaSvg from "@/svgs/modal-kapatma";
+import { getFeedbacks, postFeedback } from "@/utils/feedbackService";
 import { useState } from "react";
-import { useRouter } from "next/navigation";
 
-export default function ModalAdd({
-  isModalOpen,
-  closeModal,
-  handleAddFeedback,
-}) {
-  const [formData, setFormData] = useState({
-    title: "",
-    category: "Feature",
-    description: "",
-  });
-  const router = useRouter;
+export default function ModalAdd({ isModalOpen, closeModal }) {
+  // const [error, setError] = useState(null); // error state
+  const [loading, setLoading] = useState(false); // loading state
 
-  function handleChange(e) {
-    const { name, value } = e.target;
-    setFormData((prev) => ({ ...prev, [name]: value }));
-  }
+  // const action = async (formData) => {
+  //   try {
+  //     setLoading(true);
+  //     const formObj = {};
+  //     formData.forEach((value, key) => {
+  //       formObj[key] = value; // Form verisini nesneye dönüştür
+  //     });
+  //     const response = await postFeedback(formObj);
 
-  async function handleSubmit(e) {
-    e.preventDefault();
-    try {
-      const newFeedback = await postFeedback(formData); // feedback gönder ve dönen veriyi al
-      console.log("başarılı eklendi.");
-      handleAddFeedback(newFeedback.response);
-      closeModal();
-      setFormData({ title: "", category: "Feature", description: "" });
-    } catch (error) {
-      console.error("eklenemedi:", error);
-    }
-  }
+  //     if (response?.error) {
+  //       setError(response.error); // Hata varsa setError ile göster
+  //       return; // Eğer hata varsa durdur
+  //     }
+
+  //     console.log("Feedback başarılı:", response);
+  //     closeModal(); // Modal'ı kapat
+  //     getFeedbacks(); // Verileri yeniden yükle
+  //   } catch (err) {
+  //     console.error("Feedback gönderilirken hata:", err);
+  //     setError("Geri bildirim gönderilemedi");
+  //   } finally {
+  //     setLoading(false);
+  //   }
+  // };
+
+  // const handleSubmit = async (e) => {
+  //   e.preventDefault();
+  //   setError(null); // Hata mesajını sıfırlıyoruz
+
+  //   const formData = new FormData(e.target); // Form verisini al
+
+  //   // Formu işleyip action fonksiyonuna gönderiyoruz
+  //   await action(formData);
+  // };
 
   return (
     <div>
       {isModalOpen && (
-        <>
-          <div className="modal-overlay">
-            <div className="modal-container">
-              <button className="closeModalBtn" onClick={closeModal}>
-                <ModalKapatmaSvg />
-              </button>
-              <h2>Create New Feedback</h2>
+        <div className="modal-overlay">
+          <div className="modal-container">
+            <button className="closeModalBtn" onClick={closeModal}>
+              <ModalKapatmaSvg />
+            </button>
+            <h2>Create New Feedback</h2>
+            {/* 
+            {error && <p className="error-message">{error}</p>} */}
 
-              <form onSubmit={handleSubmit} id="AddForm">
-                <div className="form">
-                  <div className="formGroup">
-                    <label>Feedback Title</label>
-                    <p>Add a short, descriptive headline</p>
-                    <input
-                      type="text"
-                      name="title"
-                      value={formData.title}
-                      onChange={handleChange}
-                      required
-                    />
-                  </div>
-                  <div className="formGroup">
-                    <label>Category</label>
-                    <p>Choose a category for your feedback</p>
-                    <select
-                      name="category"
-                      value={formData.category}
-                      onChange={handleChange}
-                    >
-                      <option value="Feature">Feature</option>
-                      <option value="Feature">Feature</option>
-                      <option value="Feature">Feature</option>
-                      <option value="UI">UI</option>
-                      <option value="UX">UX</option>
-                      <option value="Bug">Bug</option>
-                    </select>
-                  </div>
-                  <div className="formGroup">
-                    <label>Feedback Detail</label>
-                    <p>
-                      Include any specific comments on what should be improved,
-                      added, etc.
-                    </p>
-                    <textarea
-                      type="text"
-                      name="description"
-                      value={formData.description}
-                      onChange={handleChange}
-                      required
-                    />
-                  </div>
+            <form action={postFeedback} id="AddForm">
+              <div className="form">
+                <div className="formGroup">
+                  <label htmlFor="title">Feedback Title</label>
+                  <p>Add a short, descriptive headline</p>
+                  <input type="text" name="title" required />
                 </div>
-                <div className="buttons">
-                  <button type="button" className="cancel-btn">
-                    Cancel
-                  </button>
-                  <button
-                    onSubmit={handleAddFeedback}
-                    type="submit"
-                    className="save-btn"
-                  >
-                    Add Feedback
-                  </button>
+                <div className="formGroup">
+                  <label htmlFor="category">Category</label>
+                  <p>Choose a category for your feedback</p>
+                  <select name="category" required>
+                    <option value="15">Feature</option>
+                    <option value="13">Enhancement</option>
+                    <option value="11">UI</option>
+                    <option value="12">UX</option>
+                    <option value="14">Bug</option>
+                  </select>
                 </div>
-              </form>
-            </div>
+                <div className="formGroup">
+                  <label htmlFor="description">Feedback Detail</label>
+                  <p>
+                    Include any specific comments on what should be improved,
+                    added, etc.
+                  </p>
+                  <textarea name="description" required />
+                </div>
+              </div>
+              <div className="buttons">
+                <button
+                  type="button"
+                  className="cancel-btn"
+                  onClick={closeModal}
+                >
+                  Cancel
+                </button>
+                <button type="submit" className="save-btn" disabled={loading}>
+                  {loading ? "Sending..." : "Add Feedback"}
+                </button>
+              </div>
+            </form>
           </div>
-        </>
+        </div>
       )}
     </div>
   );

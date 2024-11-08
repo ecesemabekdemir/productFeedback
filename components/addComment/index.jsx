@@ -1,4 +1,5 @@
 "use client";
+import { postComments } from "@/utils/feedbackService";
 import "./addComment.css";
 import { useEffect, useState } from "react";
 import { toast } from "sonner";
@@ -23,12 +24,10 @@ export default function AddCommentForm() {
   return (
     <div className="addCommentForm">
       <h2>Add Comment</h2>
-      <form id="addComment" className="form-group" onSubmit={handleSubmit}>
+      <form id="addComment" className="form-group" action={postComments}>
         <textarea
           className="addCommentTextarea"
           placeholder="Type your comment here"
-          value={text}
-          onChange={(e) => setText(e.target.value)}
         ></textarea>
         <div className="btn-group">
           <small>{remainingChar} Characters left</small>

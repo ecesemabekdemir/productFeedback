@@ -4,13 +4,12 @@ import "./login.css";
 import Google from "@/svgs/google";
 import Apple from "@/svgs/apple";
 import Link from "next/link";
-import { useRouter } from "next/navigation";
+import { redirect } from "next/navigation";
 
 export default function LoginPage() {
-  const router = useRouter();
   function handleLoginSuccess() {
     // ana sayfaya yönlendir
-    router.replace("/");
+    redirect("/");
   }
 
   return (
