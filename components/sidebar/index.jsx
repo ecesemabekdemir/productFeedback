@@ -13,6 +13,8 @@ export default function Sidebar({ data }) {
     setIsMenuOpen(!isMenuOpen);
   };
 
+  console.log("dataaaa", data);
+
   return (
     <div className="sidebar">
       <div className="sidebarDesktop">
