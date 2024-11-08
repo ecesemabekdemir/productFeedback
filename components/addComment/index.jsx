@@ -26,6 +26,7 @@ export default function AddCommentForm() {
       <h2>Add Comment</h2>
       <form id="addComment" className="form-group" action={postComments}>
         <textarea
+          name="description"
           className="addCommentTextarea"
           placeholder="Type your comment here"
         ></textarea>

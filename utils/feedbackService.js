@@ -135,15 +135,16 @@ export async function postFeedback(formData) {
 
 // comment atma
 export async function postComments(formData) {
-  const feedBackId = formData.get("feedBackId");
   const description = formData.get("description");
+  const created = formData.get("created");
   const userId = formData.get("userId");
   const userName = formData.get("userName");
   const commitId = formData.get("commitId");
+  const feedBackId = formData.get("feedBackId");
 
   console.log("commmmeent", formData);
 
-  const response = await fetch(
+  const response = await fetchHelper(
     `https://feedback.bariscakdi.com.tr/api/commit/addcommit`,
     {
       method: "POST",
@@ -152,20 +153,20 @@ export async function postComments(formData) {
         Cookie: cookies().toString(),
       },
       body: JSON.stringify({
-        feedBackId: parseInt(feedBackId),
         description,
+        created,
         userId: parseInt(userId),
         userName,
         commitId: parseInt(commitId),
+        feedBackId: parseInt(feedBackId),
       }),
     }
   );
   if (!response.ok) {
     console.error("Geri Bildirim Gönderilemedi:");
   }
-
   const data = await response.json();
-  redirect(`/suggestion/${feedBackId}`);
+  redirect("/");
 }
 
 //feedback silme
