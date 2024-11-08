@@ -6,19 +6,18 @@ export default function CommentCard({ comment }) {
     <div className="commentCardContainer">
       <div className="commentCardInfo">
         <div className="image"></div>
-      <div className="commentCard">
-        <div className="commentHeader">
-          <div className="profil">
-            <div className="namebox">
-              <p>{comment?.userName}</p>
-              {/* <p>{post?.commit?.username}</p> */}
+        <div className="commentCard">
+          <div className="commentHeader">
+            <div className="profil">
+              <div className="namebox">
+                <p>{comment?.userName}</p>
+              </div>
+            </div>
+            <div className="commentContent">
+              <p>{comment?.description}</p>
             </div>
           </div>
-        <div className="commentContent">
-          <p>{comment?.description}</p>
         </div>
-        </div>
-      </div>
       </div>
       <div className="reply">
         <button>Reply</button>

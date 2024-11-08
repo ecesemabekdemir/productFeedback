@@ -135,35 +135,49 @@ export async function postFeedback(formData) {
 
 // comment atma
 export async function postComments(formData) {
-  const description = formData.description;
-  const created = formData.created;
-  const userId = formData.userId;
-  const userName = formData.userName;
-  const commitId = formData.commitId;
-  const feedBackId = formData.feedBackId;
+  const description = formData.get("description");
+  const created = formData.get("created");
+  const userId = formData.get("userId");
+  const userName = formData.get("userName");
+  const feedBackId = formData.get("feedBackId");
 
-  console.log("commmmeent", formData);
+  if (!description || !created || !userId || !userName || !feedBackId) {
+    console.error(
+      "Form verileri eksik. Lütfen tüm alanları doldurduğunuzdan emin olun."
+    );
+    return;
+  }
+  const parsedFeedBackId = parseInt(feedBackId);
 
-  const response = await fetchHelper(
-    `https://feedback.bariscakdi.com.tr/api/commit/addcommit`,
-    {
-      method: "POST",
-      headers: {
-        "Content-type": "application/json",
-        Cookie: cookies().toString(),
-      },
-      body: JSON.stringify({
-        description,
-        created,
-        userId,
-        userName,
-        commitId,
-        feedBackId,
-      }),
+  try {
+    const response = await fetch(
+      `https://feedback.bariscakdi.com.tr/api/commit/addcommit`,
+      {
+        method: "POST",
+        headers: {
+          "Content-type": "application/json",
+          Cookie: cookies().toString(),
+        },
+        body: JSON.stringify({
+          description,
+          created,
+          userId,
+          userName,
+          commitId: 0,
+          feedBackId: parsedFeedBackId,
+        }),
+      }
+    );
+
+    if (!response.ok) {
+      console.error("Geri Bildirim Gönderilemedi:", response.statusText);
+      throw new Error("Geri bildirim gönderilemedi.");
     }
-  );
-  if (!response.ok) {
-    console.error("Geri Bildirim Gönderilemedi:");
+
+    const responseData = await response.json();
+    console.log("API yanıtı:", responseData);
+  } catch (error) {
+    console.error("Bir hata oluştu:", error);
   }
 }
 

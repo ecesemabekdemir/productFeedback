@@ -18,7 +18,7 @@ export default function SuggestionItem({ feedbackDetail }) {
     return <p>Gönderi bulunamadı.</p>;
   }
 
-  console.log("post",post);
+  console.log("post", post);
 
   return (
     <div id="suggestion" className="suggestionItem">
@@ -43,7 +43,7 @@ export default function SuggestionItem({ feedbackDetail }) {
         </div>
       </div>
       <CommentList feedbackDetail={feedbackDetail} />
-      <AddCommentForm />
+      <AddCommentForm post={post} setPost={setPost} />
     </div>
   );
 }
