@@ -122,25 +122,25 @@ export async function postFeedback(formData) {
         title,
         description,
         categoryId: parseInt(category),
-        CategoryName: "UI",
+        CategoryName: category,
       }),
     }
   );
   if (!response.ok) {
     console.error("Geri Bildirim Gönderilemedi:");
   }
-  const data = await response.json();
+
   redirect("/");
 }
 
 // comment atma
 export async function postComments(formData) {
-  const description = formData.get("description");
-  const created = formData.get("created");
-  const userId = formData.get("userId");
-  const userName = formData.get("userName");
-  const commitId = formData.get("commitId");
-  const feedBackId = formData.get("feedBackId");
+  const description = formData.description;
+  const created = formData.created;
+  const userId = formData.userId;
+  const userName = formData.userName;
+  const commitId = formData.commitId;
+  const feedBackId = formData.feedBackId;
 
   console.log("commmmeent", formData);
 
@@ -155,18 +155,16 @@ export async function postComments(formData) {
       body: JSON.stringify({
         description,
         created,
-        userId: parseInt(userId),
+        userId,
         userName,
-        commitId: parseInt(commitId),
-        feedBackId: parseInt(feedBackId),
+        commitId,
+        feedBackId,
       }),
     }
   );
   if (!response.ok) {
     console.error("Geri Bildirim Gönderilemedi:");
   }
-  const data = await response.json();
-  redirect("/");
 }
 
 //feedback silme

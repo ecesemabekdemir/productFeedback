@@ -1,10 +1,15 @@
 "use client";
-import { postComments } from "@/utils/feedbackService";
+import {
+  getFeedbackDetail,
+  GetMe,
+  postComments,
+} from "@/utils/feedbackService";
 import "./addComment.css";
 import { useEffect, useState } from "react";
 import { toast } from "sonner";
 
 export default function AddCommentForm() {
+  const [user, setUser] = useState({});
   const [text, setText] = useState("");
   const MAX_CHAR = 250;
   const [remainingChar, setRemainingChar] = useState(250);
@@ -20,6 +25,13 @@ export default function AddCommentForm() {
       return;
     }
   };
+  useEffect(() => {
+    const fetchUser = async () => {
+      const response = await getFeedbackDetail();
+      setUser(response); // Veriyi direkt olarak user state'ine atıyoruz
+    };
+    fetchUser();
+  }, []);
 
   return (
     <div className="addCommentForm">
@@ -30,6 +42,11 @@ export default function AddCommentForm() {
           className="addCommentTextarea"
           placeholder="Type your comment here"
         ></textarea>
+        <input type="hidden" name="userId" />
+        <input type="hidden" name="userName" />
+        <input type="hidden" name="commitId" />
+        <input type="hidden" name="feedBackId" />
+        <input type="hidden" name="created" />
         <div className="btn-group">
           <small>{remainingChar} Characters left</small>
           <div className="addCommentBtn">
