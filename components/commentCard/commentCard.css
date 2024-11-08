@@ -4,14 +4,23 @@
   border-bottom: 1px solid lightgray;
   display: flex;
   align-items: flex-start;
+  justify-content: space-between;
   gap: 32px;
   margin-bottom: 32px;
 }
 
+.commentCardInfo {
+  display: flex;
+  gap: 20px;
+}
+
 .commentCard {
+  width: 600px;
+
   .commentHeader {
     display: flex;
     justify-content: space-between;
+    flex-direction: column;
 
     .profil {
       display: flex;
@@ -62,6 +71,19 @@
   height: 25px;
   border-radius: 50%;
   background-color: #3a4374;
- 
+}
+
+.reply button {
+  cursor: pointer;
+  font-weight: 600;
+  font-size: 13px;
+  line-height: 18px;
+  color: #4661E6;
+  background-color: transparent;
+  border: transparent;
+}
+
+.reply button:hover {
+  text-decoration: underline;
 }
 
