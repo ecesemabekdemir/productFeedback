@@ -111,10 +111,6 @@
     width: 420px;
     border-radius: inherit;
   }
-
-  .header {
-    margin-block: 35px;
-  }
 }
 
 @media (max-width: 390px) {
