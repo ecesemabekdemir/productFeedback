@@ -1,6 +1,10 @@
 import Link from "next/link";
 
-export default function SidebarRoadMap() {
+export default function SidebarRoadMap({feedbackData}) {
+  const filteredPlannedData = feedbackData?.response?.filter(post => post.updateStatus === 1);
+  const filteredLiveData = feedbackData?.response?.filter(post => post.updateStatus === 2);
+  const filteredProgressData = feedbackData?.response?.filter(post => post.updateStatus === 3);
+
   return (
     <div className="sidebarRoadMap">
       <div className="roadMapRouting">
