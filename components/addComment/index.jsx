@@ -1,25 +1,43 @@
 "use client";
-import { postComments } from "@/utils/feedbackService";
+import { GetMe, postComments } from "@/utils/feedbackService";
 import "./addComment.css";
 import { useEffect, useState } from "react";
-import { toast } from "sonner";
 
-export default function AddCommentForm() {
+export default function AddCommentForm({ post, setPost }) {
   const [text, setText] = useState("");
+  const [user, setUser] = useState("");
+  const [comment, setComment] = useState(null);
+
+  useEffect(() => {
+    if (post) {
+      if (Array.isArray(post.commits)) {
+        setComment(post);
+      } else if (post.commits) {
+        setComment({ ...post, commits: [post.commits] });
+      }
+    }
+  }, [post]);
+
   const MAX_CHAR = 250;
   const [remainingChar, setRemainingChar] = useState(250);
 
   useEffect(() => {
+    const fetchUser = async () => {
+      try {
+        const userData = await GetMe();
+        setUser(userData);
+      } catch (error) {
+        toast.error("Error fetching user data.");
+        console.error(error);
+      }
+    };
+    fetchUser();
+  }, []);
+  useEffect(() => {
     setRemainingChar(MAX_CHAR - text.length);
   }, [text]);
 
-  const handleSubmit = (e) => {
-    e.preventDefault();
-    if (remainingChar < 0) {
-      toast.error("250 karakterden fazla olamaz.");
-      return;
-    }
-  };
+  console.log("feedbackDetail", post);
 
   return (
     <div className="addCommentForm">
@@ -29,7 +47,17 @@ export default function AddCommentForm() {
           name="description"
           className="addCommentTextarea"
           placeholder="Type your comment here"
+          value={text}
+          onChange={(e) => setText(e.target.value)}
         ></textarea>
+        <input type="hidden" name="userId" value={user?.data?.userId} />
+        <input
+          type="hidden"
+          name="userName"
+          value={user?.data?.firstName || ""}
+        />
+        <input type="hidden" name="feedBackId" value={comment?.id || ""} />
+        <input type="hidden" name="created" value={new Date().toISOString()} />
         <div className="btn-group">
           <small>{remainingChar} Characters left</small>
           <div className="addCommentBtn">

@@ -122,14 +122,14 @@ export async function postFeedback(formData) {
         title,
         description,
         categoryId: parseInt(category),
-        CategoryName: "UI",
+        CategoryName: category,
       }),
     }
   );
   if (!response.ok) {
     console.error("Geri Bildirim Gönderilemedi:");
   }
-  const data = await response.json();
+
   redirect("/");
 }
 
@@ -139,34 +139,46 @@ export async function postComments(formData) {
   const created = formData.get("created");
   const userId = formData.get("userId");
   const userName = formData.get("userName");
-  const commitId = formData.get("commitId");
   const feedBackId = formData.get("feedBackId");
 
-  console.log("commmmeent", formData);
-
-  const response = await fetchHelper(
-    `https://feedback.bariscakdi.com.tr/api/commit/addcommit`,
-    {
-      method: "POST",
-      headers: {
-        "Content-type": "application/json",
-        Cookie: cookies().toString(),
-      },
-      body: JSON.stringify({
-        description,
-        created,
-        userId: parseInt(userId),
-        userName,
-        commitId: parseInt(commitId),
-        feedBackId: parseInt(feedBackId),
-      }),
-    }
-  );
-  if (!response.ok) {
-    console.error("Geri Bildirim Gönderilemedi:");
+  if (!description || !created || !userId || !userName || !feedBackId) {
+    console.error(
+      "Form verileri eksik. Lütfen tüm alanları doldurduğunuzdan emin olun."
+    );
+    return;
   }
-  const data = await response.json();
-  redirect("/");
+  const parsedFeedBackId = parseInt(feedBackId);
+
+  try {
+    const response = await fetch(
+      `https://feedback.bariscakdi.com.tr/api/commit/addcommit`,
+      {
+        method: "POST",
+        headers: {
+          "Content-type": "application/json",
+          Cookie: cookies().toString(),
+        },
+        body: JSON.stringify({
+          description,
+          created,
+          userId,
+          userName,
+          commitId: 0,
+          feedBackId: parsedFeedBackId,
+        }),
+      }
+    );
+
+    if (!response.ok) {
+      console.error("Geri Bildirim Gönderilemedi:", response.statusText);
+      throw new Error("Geri bildirim gönderilemedi.");
+    }
+
+    const responseData = await response.json();
+    console.log("API yanıtı:", responseData);
+  } catch (error) {
+    console.error("Bir hata oluştu:", error);
+  }
 }
 
 //feedback silme

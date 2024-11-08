@@ -82,6 +82,7 @@ export default function ModalAdd({ isModalOpen, closeModal }) {
                   </p>
                   <textarea name="description" required />
                 </div>
+                <input type="hidden" name="CategoryName" />
               </div>
               <div className="buttons">
                 <button
