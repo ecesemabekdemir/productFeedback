@@ -1,7 +1,10 @@
 "use client";
+import { useState } from "react";
+import Reply from "../reply";
 import "./commentCard.css";
 
 export default function CommentCard({ comment }) {
+  const [show, setShow] = useState(false);
   return (
     <div className="commentCardContainer">
       <div className="commentCardInfo">
@@ -17,11 +20,13 @@ export default function CommentCard({ comment }) {
               <p>{comment?.description}</p>
             </div>
           </div>
+          <Reply show={show} />
         </div>
       </div>
-      <div className="reply">
-        <button>Reply</button>
-      </div>
+
+      <button onClick={() => setShow(!show)} className="btn-group">
+        Reply
+      </button>
     </div>
   );
 }

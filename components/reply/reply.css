@@ -1,0 +1,38 @@
+.form-group-reply {
+display: flex;
+justify-content: space-between;
+align-items: center;
+gap: 16px;
+}
+
+
+#addReply .addReplyBtn button {
+  background: none;
+  border: none;
+  cursor: pointer;
+  background-color: #ad1fea;
+  font-size: 14px;
+  font-weight: 700;
+  line-height: 20.23px;
+  text-align: left;
+  color: #f2f4fe;
+  padding: 12.5px 24px 11.5px 24px;
+  border-radius: 10px;
+}
+
+
+
+
+
+#addComment textarea {
+  background-color: #F2F4FF;
+  border: none;
+  padding: 16px 24px;
+  margin-block: 10px;
+  width: 100%; 
+  min-width: 100px; 
+  box-sizing: border-box; 
+  resize: none;
+  font-size: 16px;
+  border-radius: 5px;
+}
