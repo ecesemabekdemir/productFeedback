@@ -37,10 +37,10 @@ export default function Header({ feedbackData }) {
         </div>
         <HeaderFilter />
         {user?.data ? (
-          <>
+          <div className="sagButtons">
             <AddFeedbackButton />
             <DropdownProfile user={user} handleLogout={handleLogout} />
-          </>
+          </div>
         ) : (
           <LoginBtn />
         )}

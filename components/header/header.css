@@ -18,6 +18,12 @@
   line-height: 26.01px;
   letter-spacing: -0.25px;
 }
+.sagButtons {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 8px;
+}
 
 @media (width <= 425px) {
   .header {
