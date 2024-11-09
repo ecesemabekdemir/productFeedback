@@ -35,8 +35,8 @@ export default function SidebarFilter({ data }) {
                   `${pathname}?${createQueryString("category", x.name)}`
                 );
               }}
-              className={categoryParam === x.slug ? "select" : ""}
-            >
+              className={categoryParam == x.name ? "selectTag" : ""}
+              >
               {x.name}
             </button>
           </div>

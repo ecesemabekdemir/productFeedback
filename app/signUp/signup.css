@@ -98,7 +98,6 @@ body {
   display: flex;
   align-items: center;
   gap: 5px;
-  margin-inline: 80px;
 
   a {
     border: transparent;

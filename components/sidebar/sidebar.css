@@ -71,7 +71,12 @@
   color: #FFFFFF;
 }
 
-.item .select {
+.item.select {
+  background-color: #4661E6;
+  color: #FFFFFF;
+}
+
+.item button.selectTag {
   background-color: #4661E6;
   color: #FFFFFF;
 }
@@ -151,7 +156,6 @@
 .topnav {
   display: none;
 }
-
 
 .select {
   background-color: #4661E6;
