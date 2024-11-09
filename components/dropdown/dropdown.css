@@ -41,8 +41,12 @@
   cursor: pointer;
   background-color: transparent;
   padding-block: 4px;
+  text-transform: uppercase;
 }
 
+.dropbtn {
+  text-transform: uppercase;
+}
 .dropdown-content button:hover {
   color: gray;
 }
