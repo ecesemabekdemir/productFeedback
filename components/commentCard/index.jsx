@@ -20,8 +20,8 @@ export default function CommentCard({ comment }) {
               <p>{comment?.description}</p>
             </div>
           </div>
-          <Reply show={show} />
         </div>
+          <Reply show={show} />
       </div>
 
       <button onClick={() => setShow(!show)} className="btn-group">

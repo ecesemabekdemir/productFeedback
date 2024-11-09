@@ -19,7 +19,7 @@ export default function Reply({ show }) {
               placeholder="Type your comment here"
             ></textarea>
             <div className="addReplyBtn">
-              <button>Post Reply</button>
+              <button className="replyBtn">Post Reply</button>
             </div>
           </form>
         )}

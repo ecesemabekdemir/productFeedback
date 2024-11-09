@@ -90,6 +90,15 @@
   text-decoration: underline;
 }
 
+.btn-group {
+  background-color: transparent;
+  border: transparent;
+  color: #4661E6;
+  font-size: 13px;
+  line-height: 18.79px;
+  cursor: pointer;
+}
+
 @media (max-width: 768px) {
   .commentCardContainer {
     padding: 12px;
