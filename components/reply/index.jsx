@@ -1,13 +1,8 @@
 "use client";
 
-import { useState } from "react";
 import "./reply.css";
 
 export default function Reply({ show }) {
-  const [text, setText] = useState("");
-
-  const MAX_CHAR = 250;
-  const [remainingChar, setRemainingChar] = useState(250);
   return (
     <div className="replyContainer">
       <div className="reply">
