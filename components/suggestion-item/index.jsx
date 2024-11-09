@@ -33,7 +33,6 @@ export default function SuggestionItem({ feedbackDetail }) {
                 <h3>{post.title}</h3>
                 <p>{post.description || "içerik gelicek"}</p>
               </div>
-              <p className="tag">{post.name}</p>
             </div>
           </div>
         </div>

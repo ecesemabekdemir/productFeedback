@@ -8,6 +8,7 @@ export default async function PageDetail({ params }) {
   const { id } = params;
 
   const feedbackDetail = await getFeedbackDetail(id);
+  console.log("ddd",feedbackDetail);
 
   return (
     <>
